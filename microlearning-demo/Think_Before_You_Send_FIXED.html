@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Think Before You Send</title>
+<style>
+:root{--ink:#182536;--muted:#667487;--plum:#2f1835;--blue:#146b8c;--teal:#20a6a0;--pale:#f4eef7;--line:#dfe4e8;--white:#fff;--ok:#177a56;--bad:#a83b3b}
+*{box-sizing:border-box}body{margin:0;background:#eef3f5;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}
+.shell{max-width:980px;margin:28px auto;background:#fff;min-height:620px;border-radius:24px;box-shadow:0 18px 55px #1c40511a;overflow:hidden;position:relative}.top{height:8px;background:linear-gradient(90deg,var(--plum),var(--teal))}.bar{display:flex;align-items:center;gap:16px;padding:18px 28px;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.08em;color:var(--plum);font-size:13px}.progress{height:7px;background:#e7eff1;border-radius:99px;flex:1;overflow:hidden}.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--plum),var(--teal));transition:.35s}.count{font-size:12px;color:var(--muted)}
+main{padding:42px 54px 92px}.screen{display:none;animation:in .28s ease}.screen.active{display:block}@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1{font-size:46px;line-height:1.05;margin:8px 0 16px;max-width:720px}h2{font-size:34px;margin:0 0 14px}p{font-size:18px;line-height:1.6;color:#41536a;max-width:790px}.eyebrow{color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:12px}.lead{font-size:21px}.pill{display:inline-block;padding:8px 12px;border-radius:99px;background:var(--pale);color:var(--plum);font-weight:700;font-size:13px;margin-right:6px}
+.hero{display:grid;grid-template-columns:1.18fr .82fr;gap:34px;align-items:center}.visual{background:linear-gradient(145deg,#f5eef7,#eff9f8);border:1px solid var(--line);border-radius:28px;padding:28px;min-height:280px;display:flex;align-items:center;justify-content:center}.envelope-wrap{width:250px;display:flex;flex-direction:column;align-items:center;justify-content:center}.envelope-svg{width:238px;height:auto;display:block;filter:drop-shadow(0 14px 18px #2f18351c)}.send-label{margin-top:-76px;position:relative;z-index:2;color:var(--plum);font-weight:900;font-size:22px;letter-spacing:.01em;white-space:nowrap}.envelope{display:none}.hero-art{width:100%;max-width:420px;height:auto;display:block;border-radius:22px}
+.stepgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}.step{border:1px solid var(--line);border-radius:18px;padding:18px 14px;background:#fff}.step b{display:block;color:var(--plum);font-size:22px;margin-bottom:8px}.step small{color:var(--muted);line-height:1.35}
+.example{padding:18px 20px;border-left:4px solid var(--teal);background:#f4fbfa;border-radius:0 14px 14px 0;margin-top:20px;color:#385064}.badmail{background:#fff5f5;border:1px solid #f0c6c6;border-radius:18px;padding:20px;margin-top:22px}.badmail .label{font-size:12px;font-weight:800;color:#a83b3b;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}.mailline{margin:6px 0;color:#2f3947}.mailbody{background:#fff;border:1px solid #eadfdf;border-radius:12px;padding:15px;margin-top:13px;line-height:1.6}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}.check{border:1px solid var(--line);border-radius:16px;padding:17px;background:#fff}.check b{display:block;color:var(--plum);margin-bottom:7px}.check span{color:var(--muted);font-size:14px;line-height:1.45}.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}.panel{border:1px solid var(--line);border-radius:18px;padding:18px}.panel h3{margin:0 0 10px}.panel.before{background:#fff5f5}.panel.after{background:#f2faf7}.panel p{font-size:16px;margin:0;max-width:none}
+.question{font-size:24px;font-weight:800;margin-bottom:20px}.option{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;color:#2f1835;-webkit-text-fill-color:#2f1835;padding:15px 18px;border-radius:14px;margin:10px 0;font-size:16px;font-weight:650;cursor:pointer}.option:hover{border-color:var(--teal);background:#fcfbfd}.option:disabled{opacity:1;cursor:default;color:#2f1835;-webkit-text-fill-color:#2f1835}.option.correct{background:#eef9f4;border-color:#5bb98e}.option.wrong{background:#fff1f1;border-color:#d98787}.feedback{margin-top:16px;font-weight:700;min-height:24px}.ok{color:var(--ok)}.bad{color:var(--bad)}
+.takeaway{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:25px 0}.takeaway div{padding:16px 8px;border-radius:16px;background:var(--pale);text-align:center}.takeaway b{display:block;color:var(--plum);font-size:24px}.takeaway span{font-size:12px;color:var(--muted)}
+.nav{position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);padding:16px 28px;display:flex;justify-content:space-between;background:#ffffffed;backdrop-filter:blur(8px)}button.navbtn{border:0;border-radius:12px;padding:12px 20px;font-weight:800;cursor:pointer}.back{background:#edf2f4;color:#526276}.next{background:var(--plum);color:#fff}.next:disabled{opacity:.4;cursor:not-allowed}.time{font-size:13px;color:var(--muted);align-self:center}
+@media(max-width:760px){.shell{margin:0;border-radius:0;min-height:100vh}.hero,.compare{grid-template-columns:1fr}.visual{min-height:190px}.stepgrid,.takeaway,.checks{grid-template-columns:1fr 1fr}main{padding:30px 24px 95px}h1{font-size:38px}.bar{padding:16px}}
+@media(max-width:520px){.stepgrid,.takeaway,.checks{grid-template-columns:1fr}.envelope-wrap{transform:scale(.9)}}
+
+.identity-card{max-width:620px;margin:24px auto;padding:24px;border:1px solid var(--line);border-radius:20px;background:#f8fbfb}.field{margin:14px 0}.field label{display:block;font-weight:800;color:var(--plum);margin-bottom:7px}.field input{width:100%;padding:13px 14px;border:1px solid #cfd8de;border-radius:12px;font-size:16px}.statusbox{margin-top:18px;padding:16px;border-radius:14px;background:#f4fbfa}.cert{border:2px solid var(--plum);border-radius:22px;padding:34px;text-align:center;background:#fff;margin-top:22px}.cert h2{color:var(--plum)}.hidden{display:none!important}
+</style>
+</head>
+<body><div class="shell"><div class="top"></div><div class="bar"><div class="brand">3-MINUTE LEARNING</div><div class="progress"><i id="prog"></i></div><div class="count" id="count"></div></div><main>
+<section class="screen active" id="identity"><div class="eyebrow">Learner details</div><h2>Before you begin</h2><p>Enter your details. Your completion will be submitted for recording only after you complete the learning and achieve at least <b>85%</b> in the final knowledge check.</p><div class="identity-card"><div class="field"><label for="learnerName">Name</label><input id="learnerName" type="text" autocomplete="name" placeholder="Enter your full name"></div><div class="field"><label for="learnerEmail">Work Email</label><input id="learnerEmail" type="email" autocomplete="email" placeholder="name@numerator.com"></div><div class="statusbox">Completion criteria: finish the microlearning + score 85% or above.</div></div></section>
+<section class="screen"><div class="hero"><div><div class="eyebrow">Communication • Microlearning</div><h1>Think Before You Send</h1><p class="lead">A professional email can take 30 seconds to review—and save hours of confusion later.</p><p>Learn a simple four-part check you can use before pressing <b>Send</b>.</p><span class="pill">~3 minutes</span><span class="pill">1 scenario</span></div><div class="visual"><div class="envelope-wrap" aria-label="Envelope illustration">
+<svg class="envelope-svg" viewBox="0 0 320 220" role="img" aria-labelledby="envTitle envDesc" xmlns="http://www.w3.org/2000/svg">
+  <title id="envTitle">Professional email envelope</title>
+  <desc id="envDesc">A simple envelope illustration representing clear workplace email communication.</desc>
+  <rect x="32" y="48" width="256" height="150" rx="22" fill="#ffffff" stroke="#2f1835" stroke-width="7"/>
+  <path d="M46 69 L160 145 L274 69" fill="none" stroke="#20a6a0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47 178 L122 118" fill="none" stroke="#2f1835" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+  <path d="M273 178 L198 118" fill="none" stroke="#2f1835" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+  <circle cx="255" cy="56" r="28" fill="#20a6a0"/>
+  <path d="M244 56 l8 8 16-18" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<div class="send-label">Think. Check. Send.</div>
+</div></div></div></section>
+<section class="screen"><div class="eyebrow">The 30-second check</div><h2>Before you send, check four things.</h2><p>Good emails are not about sounding formal. They are about making it easy for the reader to understand what is needed.</p><div class="stepgrid"><div class="step"><b>01 · Context</b><small>Does the reader know why you are writing?</small></div><div class="step"><b>02 · Action</b><small>Is the required next step clear?</small></div><div class="step"><b>03 · Timeline</b><small>Have you stated when it is needed?</small></div><div class="step"><b>04 · Tone</b><small>Does it sound professional and respectful?</small></div></div><div class="example"><b>Remember:</b> The goal is clarity—not longer emails.</div></section>
+<section class="screen"><div class="eyebrow">Spot the problem</div><h2>This email is short. But is it clear?</h2><div class="badmail"><div class="label">Example email</div><div class="mailline"><b>Subject:</b> Pending</div><div class="mailline"><b>To:</b> Team</div><div class="mailbody">Hi,<br><br>This is still pending. Please do it ASAP as we already discussed this.<br><br>Thanks.</div></div><div class="checks"><div class="check"><b>Context</b><span>The reader is not told which task or issue is being referenced.</span></div><div class="check"><b>Action</b><span>“Do it” does not identify the exact action.</span></div><div class="check"><b>Timeline</b><span>“ASAP” leaves the deadline open to interpretation.</span></div><div class="check"><b>Tone</b><span>The wording can sound abrupt when the context is unclear.</span></div></div></section>
+<section class="screen"><div class="eyebrow">Make it actionable</div><h2>Same message. Better communication.</h2><div class="compare"><div class="panel before"><h3>Before</h3><p>“This is still pending. Please do it ASAP as we already discussed this.”</p></div><div class="panel after"><h3>After</h3><p>“Hi team, the Q3 tracker update is still pending. Please complete the remaining entries and share the updated file by 3:00 PM today. Thanks.”</p></div></div><div class="example"><b>What changed?</b> The improved version gives the reader context, a specific action, a clear timeline, and a neutral professional tone.</div></section>
+<section class="screen" id="quiz"><div class="eyebrow">Final knowledge check</div><h2>Score 85% or above to complete</h2><p>Answer all 7 questions. You need at least 6 correct answers to pass.</p><div id="quizQuestions"></div><div class="feedback" id="feedback"></div></section>
+<section class="screen"><div class="eyebrow">Your takeaway</div><h2>Pause for 30 seconds before Send.</h2><p>Use this quick mental checklist whenever a message affects another person's work, deadline, or next action.</p><div class="takeaway"><div><b>C</b><span>Context</span></div><div><b>A</b><span>Action</span></div><div><b>T</b><span>Timeline</span></div><div><b>T</b><span>Tone</span></div></div><div class="example"><b>Two-minute challenge:</b> Before your next important email, read it once as if you were the recipient. Could you immediately answer: <i>What is this about? What do I need to do? By when?</i></div><p style="margin-top:22px"><b>Think → Check → Send.</b></p></section>
+
+<section class="screen" id="result"><div class="eyebrow">Completion result</div><h2 id="resultTitle">Your result</h2><p id="resultText"></p><div id="recordStatus" class="statusbox"></div><div id="certificate" class="cert hidden"><div class="eyebrow">Certificate of Completion</div><h2>Think Before You Send</h2><p>This certifies that</p><h2 id="certName"></h2><p>successfully completed the microlearning with a score of <b id="certScore"></b>.</p><p id="certDate"></p><button class="navbtn next" onclick="window.print()">Print / Save Certificate</button></div></section>
+</main><div class="nav"><button class="navbtn back" id="back">← Back</button><div class="time" id="time">Estimated time: 3 min</div><button class="navbtn next" id="next">Start →</button></div></div>
+<iframe name="trackingFrame" id="trackingFrame" style="display:none" title="Tracking"></iframe>
+<form id="trackingForm" method="POST" target="trackingFrame" style="display:none">
+  <input type="hidden" name="name" id="trackName">
+  <input type="hidden" name="email" id="trackEmail">
+  <input type="hidden" name="module" id="trackModule">
+  <input type="hidden" name="score" id="trackScore">
+  <input type="hidden" name="status" id="trackStatus">
+</form>
+<script>
+(() => {
+  'use strict';
+
+  const TRACKING_URL = 'https://script.google.com/a/macros/numerator.com/s/AKfycbw9a4dIXIKH9pRP8uJDBmgBWUtnSxsMa-wG9uciDxuDQ5ky5la_83E7V4oz0xeadcLjbw/exec';
+  const MODULE = 'Think Before You Send';
+  const PASS_PERCENT = 85;
+
+  const screens = [...document.querySelectorAll('.screen')];
+  const nextBtn = document.getElementById('next');
+  const backBtn = document.getElementById('back');
+  const progressBar = document.getElementById('prog');
+  const counter = document.getElementById('count');
+  const timeLabel = document.getElementById('time');
+  const learnerName = document.getElementById('learnerName');
+  const learnerEmail = document.getElementById('learnerEmail');
+  const quizBox = document.getElementById('quizQuestions');
+
+  let current = 0;
+  let score = 0;
+
+  const questions = [
+    {q:'Which element gives the reader enough background to understand why you are writing?',a:['Context','Action','Timeline','Tone'],c:0},
+    {q:'Which sentence gives the clearest action?',a:['Please do it ASAP.','Please complete the remaining Q3 tracker entries.','This is still pending.','Please check.'],c:1},
+    {q:'Which timeline is clearest?',a:['ASAP','Soon','By 4:00 PM today','Whenever possible'],c:2},
+    {q:'Why can “Please do it ASAP” create confusion?',a:['It is too polite.','It does not specify the task or a clear deadline.','It contains too much context.','It is always unprofessional.'],c:1},
+    {q:'Which message best demonstrates Context + Action + Timeline?',a:['Need this today.','Please do the needful.','The Q3 tracker is pending. Please complete the remaining entries by 3:00 PM today.','ASAP please.'],c:2},
+    {q:'What is the goal of the 30-second check?',a:['Make emails longer.','Use formal vocabulary.','Make the reader’s next step easy to understand.','Avoid sending emails.'],c:2},
+    {q:'What does CATT stand for?',a:['Context, Action, Timeline, Tone','Clarity, Accuracy, Task, Time','Context, Accuracy, Timing, Task','Clear, Actionable, Timely, Technical'],c:0}
+  ];
+
+  function buildQuiz() {
+    quizBox.innerHTML = questions.map((item, qi) => `
+      <div class="check" style="margin:14px 0">
+        <div class="question" style="font-size:18px">${qi + 1}. ${item.q}</div>
+        ${item.a.map((answer, ai) => `
+          <label class="option" style="display:flex;gap:10px;align-items:flex-start">
+            <input type="radio" name="q${qi}" value="${ai}">
+            <span>${answer}</span>
+          </label>`).join('')}
+      </div>`).join('');
+  }
+
+  function validIdentity() {
+    const nameOk = learnerName.value.trim().length > 1;
+    const email = learnerEmail.value.trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return nameOk && emailOk;
+  }
+
+  function allAnswered() {
+    return questions.every((_, qi) => document.querySelector(`input[name="q${qi}"]:checked`));
+  }
+
+  function calculateScore() {
+    let correct = 0;
+    questions.forEach((q, qi) => {
+      const selected = document.querySelector(`input[name="q${qi}"]:checked`);
+      if (selected && Number(selected.value) === q.c) correct += 1;
+    });
+    return Math.round((correct / questions.length) * 100);
+  }
+
+  function sendRecord() {
+    const statusBox = document.getElementById('recordStatus');
+    const form = document.getElementById('trackingForm');
+    document.getElementById('trackName').value = learnerName.value.trim();
+    document.getElementById('trackEmail').value = learnerEmail.value.trim();
+    document.getElementById('trackModule').value = MODULE;
+    document.getElementById('trackScore').value = `${score}%`;
+    document.getElementById('trackStatus').value = 'Completed';
+    form.action = TRACKING_URL;
+    statusBox.innerHTML = 'Submitting completion record...';
+    try {
+      form.submit();
+      setTimeout(() => {
+        statusBox.innerHTML = '<b>Completion submitted.</b><br>Your result has been sent to the tracking system.';
+      }, 1200);
+    } catch (err) {
+      console.error('Tracking submission failed:', err);
+      statusBox.innerHTML = '<b>Completion achieved.</b><br>The tracking request could not be sent from this browser.';
+    }
+  }
+
+  function showResult() {
+    const passed = score >= PASS_PERCENT;
+    document.getElementById('resultTitle').textContent = passed ? 'Completed - Congratulations!' : 'Not completed yet';
+    document.getElementById('resultText').innerHTML = `Your score is <b>${score}%</b>. ${passed ? 'You met the 85% completion threshold.' : 'You need at least 85%. Please retry the knowledge check.'}`;
+    const certificate = document.getElementById('certificate');
+    if (passed) {
+      document.getElementById('certName').textContent = learnerName.value.trim();
+      document.getElementById('certScore').textContent = `${score}%`;
+      document.getElementById('certDate').textContent = `Completed on ${new Date().toLocaleDateString('en-GB', {day:'2-digit', month:'long', year:'numeric'})}`;
+      certificate.classList.remove('hidden');
+      sendRecord();
+    } else {
+      certificate.classList.add('hidden');
+      document.getElementById('recordStatus').textContent = 'No completion record has been submitted because the pass threshold was not met.';
+    }
+  }
+
+  function render() {
+    screens.forEach((screen, index) => screen.classList.toggle('active', index === current));
+    progressBar.style.width = `${((current + 1) / screens.length) * 100}%`;
+    counter.textContent = `${current + 1} / ${screens.length}`;
+    backBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+    const id = screens[current].id;
+    if (id === 'identity') {
+      nextBtn.textContent = 'Start ->';
+      nextBtn.disabled = false;
+      timeLabel.textContent = 'Estimated time: 3 min';
+    } else if (id === 'quiz') {
+      nextBtn.textContent = 'Submit Knowledge Check ->';
+      nextBtn.disabled = !allAnswered();
+      timeLabel.textContent = 'Final knowledge check';
+    } else if (id === 'result') {
+      nextBtn.textContent = score >= PASS_PERCENT ? 'Restart' : 'Retry Quiz';
+      nextBtn.disabled = false;
+      timeLabel.textContent = 'Result';
+    } else {
+      nextBtn.textContent = 'Next ->';
+      nextBtn.disabled = false;
+      timeLabel.textContent = 'Estimated time: 3-5 min';
+    }
+  }
+
+  function resetQuiz() {
+    document.querySelectorAll('#quizQuestions input').forEach(input => { input.checked = false; });
+    score = 0;
+  }
+
+  function handleNext() {
+    const currentId = screens[current].id;
+    if (currentId === 'identity' && !validIdentity()) {
+      const status = document.querySelector('#identity .statusbox');
+      status.innerHTML = '<b>Please enter your full name and a valid work email before starting.</b>';
+      learnerName.focus();
+      return;
+    }
+    if (currentId === 'quiz') {
+      if (!allAnswered()) return;
+      score = calculateScore();
+      current = screens.findIndex(screen => screen.id === 'result');
+      showResult();
+      render();
+      return;
+    }
+    if (currentId === 'result') {
+      if (score < PASS_PERCENT) {
+        current = screens.findIndex(screen => screen.id === 'quiz');
+        resetQuiz();
+      } else {
+        current = 0;
+        learnerName.value = '';
+        learnerEmail.value = '';
+        resetQuiz();
+        document.getElementById('recordStatus').textContent = '';
+        document.getElementById('certificate').classList.add('hidden');
+      }
+      render();
+      return;
+    }
+    if (current < screens.length - 1) current += 1;
+    render();
+  }
+
+  function handleBack() {
+    if (current > 0) {
+      current -= 1;
+      render();
+    }
+  }
+
+  buildQuiz();
+  nextBtn.type = 'button';
+  backBtn.type = 'button';
+  nextBtn.addEventListener('click', handleNext);
+  backBtn.addEventListener('click', handleBack);
+  learnerName.addEventListener('input', render);
+  learnerEmail.addEventListener('input', render);
+  quizBox.addEventListener('change', render);
+  render();
+})();
+</script></body></html>
