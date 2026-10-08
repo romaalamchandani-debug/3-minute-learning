@@ -11,29 +11,54 @@
 :root{
   --ink:#173238;
   --muted:#61747a;
-  --page:#f4f3ee;
+  --page:#f3f6f5;
   --line:#d8dfdc;
 
   --teal:#0b7b73;
   --deep:#075c56;
 
-  --r:#ef9f36;
-  --a:#d96b5f;
-  --c:#55a9a3;
-  --i:#7c8eb8;
+  /* RACI colours */
+  --r:#f2a12f;
+  --r-side:#d98214;
+  --r-top:#ffc363;
 
-  --soft:#edf6f3;
+  --a:#df675b;
+  --a-side:#b94840;
+  --a-top:#ef8d84;
+
+  /* deliberately darker than scene background */
+  --c:#237f7a;
+  --c-side:#145d59;
+  --c-top:#49aaa4;
+
+  --i:#788dbd;
+  --i-side:#526a9f;
+  --i-top:#99aad0;
+
+  --scene:#72b7b2;
 }
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 *{
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--ink);
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
   background:var(--page);
+  color:var(--ink);
 }
 
 button,
@@ -43,86 +68,139 @@ input{
 
 
 /* =========================================================
-   SHELL
+   MAIN SHELL
    ========================================================= */
 
 .shell{
-  width:min(1180px,calc(100% - 28px));
+  width:min(
+    1180px,
+    calc(100% - 28px)
+  );
+
   margin:24px auto;
+
   background:#fff;
+
   border-radius:26px;
+
   overflow:hidden;
-  box-shadow:0 20px 60px rgba(20,54,62,.10);
+
+  box-shadow:
+    0 20px 60px
+    rgba(20,54,62,.10);
+
   position:relative;
 }
 
+
 .topline{
   height:8px;
-  background:linear-gradient(
-    90deg,
-    var(--teal),
-    #76bd91
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--teal),
+      #75bb90
+    );
 }
+
 
 .header{
   display:flex;
-  gap:16px;
+
   align-items:center;
-  padding:18px 28px;
-  border-bottom:1px solid var(--line);
+
+  gap:16px;
+
+  padding:
+    18px 28px;
+
+  border-bottom:
+    1px solid var(--line);
 }
 
+
 .brand{
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.11em;
   color:var(--teal);
+
+  font-size:13px;
+
+  font-weight:900;
+
+  letter-spacing:.11em;
+
   white-space:nowrap;
 }
 
+
 .progress{
   flex:1;
+
   height:7px;
+
   border-radius:999px;
+
   background:#e8efed;
+
   overflow:hidden;
 }
 
+
 .progress i{
   display:block;
+
   height:100%;
+
   width:0;
-  background:linear-gradient(
-    90deg,
-    var(--teal),
-    #76bd91
-  );
-  transition:width .35s ease;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--teal),
+      #75bb90
+    );
+
+  transition:
+    width .35s ease;
 }
+
 
 .count{
   min-width:90px;
+
   text-align:right;
+
   color:var(--muted);
+
   font-size:12px;
+
   font-weight:800;
 }
 
+
 main{
-  padding:38px 46px 104px;
+  padding:
+    38px
+    46px
+    104px;
 }
+
 
 .screen{
   display:none;
 }
 
+
 .screen.active{
   display:block;
-  animation:fade .28s ease;
+
+  animation:
+    fadeIn .3s ease;
 }
 
-@keyframes fade{
+
+@keyframes fadeIn{
+
   from{
     opacity:0;
     transform:translateY(7px);
@@ -132,6 +210,7 @@ main{
     opacity:1;
     transform:none;
   }
+
 }
 
 
@@ -140,34 +219,62 @@ main{
    ========================================================= */
 
 .eyebrow{
-  font-size:12px;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:.11em;
   color:var(--teal);
+
+  font-size:12px;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+  letter-spacing:.11em;
 }
 
+
 h1{
-  margin:8px 0 15px;
-  font-size:clamp(44px,6vw,72px);
+  margin:
+    8px 0 15px;
+
+  font-size:
+    clamp(
+      44px,
+      6vw,
+      72px
+    );
+
   line-height:1;
+
   letter-spacing:-.04em;
 }
 
+
 h2{
-  margin:7px 0 13px;
-  font-size:clamp(30px,4vw,43px);
+  margin:
+    7px 0 13px;
+
+  font-size:
+    clamp(
+      30px,
+      4vw,
+      43px
+    );
+
   line-height:1.08;
 }
 
+
 p{
   color:#42585f;
+
   font-size:18px;
+
   line-height:1.58;
 }
 
+
 .lead{
   max-width:760px;
+
   font-size:21px;
 }
 
@@ -178,328 +285,656 @@ p{
 
 .intro-grid{
   display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:38px;
+
+  grid-template-columns:
+    minmax(0,1.05fr)
+    minmax(390px,.95fr);
+
+  gap:42px;
+
   align-items:center;
 }
+
 
 .pills{
   display:flex;
+
   gap:8px;
+
   flex-wrap:wrap;
-  margin:18px 0 22px;
+
+  margin:
+    18px 0 22px;
 }
 
+
 .pill{
-  padding:8px 12px;
+  padding:
+    8px 12px;
+
   border-radius:999px;
+
   background:#eef6f3;
+
   color:var(--deep);
+
   font-size:13px;
+
   font-weight:850;
 }
 
+
 .identity{
   margin-top:22px;
+
   padding:18px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
   border-radius:17px;
+
   background:#fafcfb;
 }
 
+
 .identity label{
   display:block;
+
   margin-bottom:8px;
+
   color:var(--deep);
+
   font-size:13px;
+
   font-weight:900;
+
   text-transform:uppercase;
 }
 
+
 .identity input{
   width:100%;
-  padding:13px 14px;
-  border:1px solid #cad9d4;
+
+  padding:
+    13px 14px;
+
+  border:
+    1px solid #cad9d4;
+
   border-radius:12px;
+
   outline:none;
 }
 
+
 .identity input:focus{
   border-color:var(--teal);
-  box-shadow:0 0 0 3px rgba(11,123,115,.12);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(11,123,115,.12);
 }
 
 
 /* =========================================================
-   INTRO VISUAL
+   INTRO STACK
    ========================================================= */
 
 .intro-visual{
-  min-height:400px;
-  border:1px solid var(--line);
-  border-radius:28px;
-  background:linear-gradient(
-    145deg,
-    #edf6f3,
-    #faf8f2
-  );
+  min-height:455px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #edf6f2,
+      #fbfaf5
+    );
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
+  padding:
+    50px 30px;
 }
 
-.mini-stack{
+
+.intro-stack{
   display:flex;
+
   flex-direction:column-reverse;
-  align-items:center;
-  gap:4px;
-}
 
-.mini-block{
-  width:135px;
-  height:72px;
-  border-radius:13px;
-  display:flex;
-  align-items:center;
-  padding:0 17px;
-  gap:10px;
-  color:#fff;
-  font-weight:900;
-  box-shadow:7px 7px 0 rgba(0,0,0,.08);
-}
+  gap:14px;
 
-.mini-block b{
-  font-size:34px;
-}
+  position:relative;
 
-.mini-block span{
-  font-size:13px;
+  padding:
+    20px
+    34px
+    20px
+    20px;
 }
 
 
 /* =========================================================
-   BUILD SCENE
+   3D BLOCK SYSTEM
+   ========================================================= */
+
+.cube{
+  --front:#999;
+  --side:#777;
+  --top:#bbb;
+
+  position:relative;
+
+  width:220px;
+
+  height:86px;
+
+  border-radius:14px;
+
+  background:var(--front);
+
+  display:flex;
+
+  align-items:center;
+
+  padding:
+    0 22px;
+
+  gap:15px;
+
+  color:#fff;
+
+  box-shadow:
+    0 12px 20px
+    rgba(20,40,40,.13);
+
+  isolation:isolate;
+}
+
+
+/* right 3D side */
+
+.cube::after{
+  content:"";
+
+  position:absolute;
+
+  right:-17px;
+
+  top:10px;
+
+  width:18px;
+
+  height:
+    calc(100% - 4px);
+
+  background:var(--side);
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 10px,
+      100% 100%,
+      0 calc(100% - 10px)
+    );
+
+  border-radius:
+    0 7px 7px 0;
+
+  z-index:-1;
+}
+
+
+/* top 3D face */
+
+.cube::before{
+  content:"";
+
+  position:absolute;
+
+  left:10px;
+
+  right:-8px;
+
+  top:-11px;
+
+  height:13px;
+
+  background:var(--top);
+
+  clip-path:
+    polygon(
+      0 100%,
+      10px 0,
+      calc(100% - 16px) 0,
+      100% 100%
+    );
+
+  border-radius:
+    6px 6px 0 0;
+
+  z-index:-1;
+}
+
+
+.cube-letter{
+  flex:
+    0 0 auto;
+
+  min-width:42px;
+
+  font-size:44px;
+
+  line-height:1;
+
+  font-weight:950;
+}
+
+
+.cube-label{
+  flex:1;
+
+  min-width:0;
+
+  font-size:15px;
+
+  line-height:1.1;
+
+  font-weight:900;
+
+  letter-spacing:.015em;
+
+  text-transform:uppercase;
+
+  white-space:nowrap;
+}
+
+
+.cube-r{
+  --front:var(--r);
+  --side:var(--r-side);
+  --top:var(--r-top);
+}
+
+
+.cube-a{
+  --front:var(--a);
+  --side:var(--a-side);
+  --top:var(--a-top);
+}
+
+
+.cube-c{
+  --front:var(--c);
+  --side:var(--c-side);
+  --top:var(--c-top);
+}
+
+
+.cube-i{
+  --front:var(--i);
+  --side:var(--i-side);
+  --top:var(--i-top);
+}
+
+
+/* =========================================================
+   BUILD SCREEN
    ========================================================= */
 
 .build-grid{
   display:grid;
-  grid-template-columns:1.35fr .65fr;
-  gap:28px;
+
+  grid-template-columns:
+    minmax(0,1.4fr)
+    minmax(310px,.6fr);
+
+  gap:30px;
+
   align-items:center;
 }
 
+
+/* =========================================================
+   SCENE
+   ========================================================= */
+
 .scene{
   position:relative;
-  height:510px;
-  border:1px solid var(--line);
-  border-radius:26px;
+
+  height:560px;
+
+  border:
+    1px solid #67aaa6;
+
+  border-radius:30px;
+
   overflow:hidden;
-  background:#73b8b2;
+
+  background:
+    linear-gradient(
+      180deg,
+      #76bbb6,
+      var(--scene)
+    );
 }
 
-.floor{
+
+.scene-floor{
   position:absolute;
+
   left:6%;
-  right:6%;
-  bottom:55px;
-  height:5px;
-  background:#25373a;
+
+  right:5%;
+
+  bottom:58px;
+
+  height:6px;
+
+  background:#203b3d;
+
   border-radius:999px;
 }
 
 
-/* =========================================================
-   PERSON
-   ========================================================= */
+/* subtle floor shadow */
 
-.person{
+.scene-floor::after{
+  content:"";
+
   position:absolute;
-  width:90px;
-  height:180px;
-  left:60px;
-  top:270px;
-  transition:
-    left 1.15s ease,
-    top 1.15s ease;
-  z-index:8;
-}
 
-.head{
-  width:34px;
-  height:38px;
+  left:55%;
+
+  right:2%;
+
+  top:8px;
+
+  height:15px;
+
+  background:
+    rgba(20,50,50,.10);
+
+  filter:
+    blur(8px);
+
   border-radius:50%;
-  background:#e8b58e;
-  position:absolute;
-  top:0;
-  left:31px;
-}
-
-.hair{
-  width:36px;
-  height:17px;
-  border-radius:50% 50% 20% 20%;
-  background:#5d2423;
-  position:absolute;
-  top:-2px;
-  left:29px;
-  transform:rotate(-8deg);
-}
-
-.body{
-  width:45px;
-  height:82px;
-  position:absolute;
-  left:25px;
-  top:34px;
-  border-radius:13px 13px 8px 8px;
-  background:#fff;
-  border:2px solid #e7ece9;
-}
-
-.tie{
-  position:absolute;
-  left:44px;
-  top:42px;
-  width:7px;
-  height:46px;
-  background:#df554e;
-  clip-path:polygon(
-    50% 0,
-    100% 18%,
-    75% 100%,
-    25% 100%,
-    0 18%
-  );
-}
-
-.leg{
-  position:absolute;
-  width:12px;
-  height:72px;
-  top:110px;
-  background:#182a2d;
-  transform-origin:top;
-}
-
-.leg.one{
-  left:33px;
-  transform:rotate(8deg);
-}
-
-.leg.two{
-  left:54px;
-  transform:rotate(-8deg);
-}
-
-.arm{
-  position:absolute;
-  width:11px;
-  height:62px;
-  top:52px;
-  background:#e8b58e;
-  border-radius:8px;
-}
-
-.arm.one{
-  left:21px;
-  transform:rotate(22deg);
-}
-
-.arm.two{
-  left:66px;
-  transform:rotate(-24deg);
 }
 
 
 /* =========================================================
-   CARRIED BLOCK
+   STACK IN SCENE
    ========================================================= */
 
-.carry-block{
+.scene-stack{
   position:absolute;
-  width:74px;
-  height:65px;
-  border-radius:9px;
-  left:62px;
-  top:63px;
-  color:#fff;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  font-size:34px;
-  font-weight:950;
-  box-shadow:5px 5px 0 rgba(0,0,0,.08);
-  z-index:10;
-}
 
-.carry-block.show{
-  display:flex;
+  right:7%;
+
+  bottom:65px;
+
+  width:245px;
+
+  height:395px;
+
+  z-index:4;
 }
 
 
-/* =========================================================
-   STACK
-   ========================================================= */
+.scene-cube{
+  width:210px;
 
-.stack{
-  position:absolute;
-  right:110px;
-  bottom:60px;
-  width:170px;
-  height:360px;
-}
+  height:84px;
 
-.raci-block{
+  padding:
+    0 20px;
+
+  gap:14px;
+
   position:absolute;
-  left:20px;
-  width:135px;
-  height:78px;
-  border-radius:10px;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:0 14px;
-  box-shadow:8px 7px 0 rgba(0,0,0,.10);
+
+  left:5px;
+
   opacity:0;
-  transform:translateY(-20px) scale(.94);
+
+  transform:
+    translateY(-24px)
+    scale(.96);
+
   transition:
-    opacity .35s ease,
-    transform .4s ease;
+    opacity .38s ease,
+    transform .48s cubic-bezier(.2,.8,.2,1);
 }
 
-.raci-block.show{
+
+.scene-cube.show{
   opacity:1;
+
   transform:none;
 }
 
-.raci-block strong{
-  font-size:38px;
+
+.scene-cube .cube-letter{
+  min-width:44px;
+
+  font-size:46px;
 }
 
-.raci-block span{
-  font-size:12px;
-  font-weight:900;
+
+.scene-cube .cube-label{
+  font-size:13px;
+
+  letter-spacing:.025em;
 }
 
-.block-r{
+
+#blockR{
   bottom:0;
-  background:var(--r);
 }
 
-.block-a{
-  bottom:82px;
-  background:var(--a);
+
+#blockA{
+  bottom:94px;
 }
 
-.block-c{
-  bottom:164px;
-  background:var(--c);
+
+#blockC{
+  bottom:188px;
 }
 
-.block-i{
-  bottom:246px;
-  background:var(--i);
+
+#blockI{
+  bottom:282px;
+}
+
+
+/* =========================================================
+   PROFESSIONAL WORKER ILLUSTRATION
+   ========================================================= */
+
+.worker{
+  position:absolute;
+
+  left:7%;
+
+  bottom:65px;
+
+  width:112px;
+
+  height:235px;
+
+  z-index:8;
+
+  transition:
+    left 1.15s cubic-bezier(.4,0,.2,1),
+    bottom 1.05s cubic-bezier(.4,0,.2,1),
+    transform .35s ease;
+}
+
+
+.worker svg{
+  display:block;
+
+  width:100%;
+
+  height:100%;
+
+  overflow:visible;
+}
+
+
+/* subtle professional walking movement */
+
+.worker.walking{
+  animation:
+    workerBob .52s
+    ease-in-out
+    infinite alternate;
+}
+
+
+@keyframes workerBob{
+
+  from{
+    transform:translateY(0);
+  }
+
+  to{
+    transform:translateY(-3px);
+  }
+
+}
+
+
+.worker.walking .leg-left{
+  animation:
+    legLeft .52s
+    ease-in-out
+    infinite alternate;
+
+  transform-origin:
+    49px 159px;
+}
+
+
+.worker.walking .leg-right{
+  animation:
+    legRight .52s
+    ease-in-out
+    infinite alternate;
+
+  transform-origin:
+    67px 159px;
+}
+
+
+@keyframes legLeft{
+
+  from{
+    transform:rotate(4deg);
+  }
+
+  to{
+    transform:rotate(-7deg);
+  }
+
+}
+
+
+@keyframes legRight{
+
+  from{
+    transform:rotate(-5deg);
+  }
+
+  to{
+    transform:rotate(7deg);
+  }
+
+}
+
+
+.worker.climbing{
+  transform:
+    scale(.94);
+}
+
+
+/* =========================================================
+   CARRIED CUBE
+   ========================================================= */
+
+.carry-cube{
+  position:absolute;
+
+  width:88px;
+
+  height:62px;
+
+  right:-60px;
+
+  top:73px;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:10px;
+
+  color:#fff;
+
+  font-size:32px;
+
+  font-weight:950;
+
+  box-shadow:
+    5px 7px 0
+    rgba(20,45,45,.15);
+
+  z-index:12;
+}
+
+
+.carry-cube.show{
+  display:flex;
+}
+
+
+.carry-cube::before{
+  content:"";
+
+  position:absolute;
+
+  left:7px;
+
+  right:-6px;
+
+  top:-8px;
+
+  height:9px;
+
+  background:
+    rgba(255,255,255,.24);
+
+  clip-path:
+    polygon(
+      0 100%,
+      8px 0,
+      calc(100% - 9px) 0,
+      100% 100%
+    );
 }
 
 
@@ -509,122 +944,207 @@ p{
 
 .ladder{
   position:absolute;
-  width:105px;
-  height:245px;
-  right:265px;
-  bottom:60px;
+
+  width:125px;
+
+  height:300px;
+
+  right:300px;
+
+  bottom:62px;
+
   opacity:0;
-  transform:translateX(-250px);
+
+  transform:
+    translateX(-270px);
+
   transition:
-    opacity .5s ease,
-    transform 1.1s ease;
-  z-index:4;
+    opacity .45s ease,
+    transform 1s cubic-bezier(.4,0,.2,1);
+
+  z-index:3;
 }
+
 
 .ladder.show{
   opacity:1;
+
   transform:none;
 }
 
-.ladder::before,
-.ladder::after{
-  content:"";
+
+.ladder-side{
   position:absolute;
-  width:9px;
+
+  top:0;
+
+  width:10px;
+
   height:100%;
-  background:#223638;
-  border-radius:6px;
+
+  background:#203e40;
+
+  border-radius:7px;
 }
 
-.ladder::before{
-  left:8px;
-  transform:rotate(8deg);
+
+.ladder-side.left{
+  left:10px;
+
+  transform:rotate(7deg);
 }
 
-.ladder::after{
-  right:8px;
-  transform:rotate(-8deg);
+
+.ladder-side.right{
+  right:10px;
+
+  transform:rotate(-7deg);
 }
 
-.rung{
+
+.ladder-rung{
   position:absolute;
-  left:17px;
-  width:72px;
-  height:7px;
-  background:#223638;
-  border-radius:6px;
+
+  left:23px;
+
+  width:79px;
+
+  height:8px;
+
+  background:#203e40;
+
+  border-radius:7px;
 }
 
-.rung:nth-child(1){bottom:35px;}
-.rung:nth-child(2){bottom:85px;}
-.rung:nth-child(3){bottom:135px;}
-.rung:nth-child(4){bottom:185px;}
+
+.ladder-rung.r1{
+  bottom:48px;
+}
+
+.ladder-rung.r2{
+  bottom:105px;
+}
+
+.ladder-rung.r3{
+  bottom:162px;
+}
+
+.ladder-rung.r4{
+  bottom:219px;
+}
 
 
 /* =========================================================
-   EXPLANATION
+   EXPLANATION PANEL
    ========================================================= */
 
 .explain-card{
-  border:1px solid var(--line);
-  border-radius:23px;
-  padding:24px;
+  border:
+    1px solid var(--line);
+
+  border-radius:24px;
+
   background:#fbfcfb;
+
+  padding:25px;
 }
 
-.role-label{
+
+.role-head{
   display:flex;
+
   align-items:center;
-  gap:12px;
-  margin-bottom:13px;
+
+  gap:13px;
 }
+
 
 .role-letter{
-  width:52px;
-  height:52px;
-  border-radius:13px;
+  width:55px;
+
+  height:55px;
+
+  border-radius:14px;
+
+  background:#d6dddd;
+
   display:grid;
+
   place-items:center;
+
   color:#fff;
-  font-size:28px;
+
+  font-size:29px;
+
   font-weight:950;
 }
 
-.explain-card h3{
+
+.role-head h3{
   margin:0;
+
   font-size:27px;
 }
 
+
 .role-question{
+  margin-top:17px;
+
   color:var(--teal);
+
+  font-size:16px;
+
   font-weight:900;
-  margin-top:8px;
 }
 
-.key-point{
-  margin-top:15px;
-  padding:13px 15px;
-  border-radius:13px;
-  background:#edf6f3;
-  font-size:14px;
-  line-height:1.5;
-  color:#42585f;
+
+.role-copy{
+  font-size:16px;
 }
+
+
+.key-point{
+  margin-top:16px;
+
+  padding:
+    14px 16px;
+
+  border-radius:14px;
+
+  background:#edf6f3;
+
+  color:#42585f;
+
+  font-size:14px;
+
+  line-height:1.5;
+}
+
 
 .build-btn{
   width:100%;
-  border:0;
-  border-radius:13px;
+
+  margin-top:19px;
+
   padding:14px;
-  margin-top:18px;
+
+  border:0;
+
+  border-radius:13px;
+
   background:var(--teal);
+
   color:#fff;
+
   font-weight:900;
+
   cursor:pointer;
 }
 
+
 .build-btn:disabled{
   opacity:.45;
+
   cursor:not-allowed;
 }
 
@@ -635,37 +1155,59 @@ p{
 
 .summary-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:14px;
-  margin-top:25px;
+
+  margin-top:27px;
 }
 
+
 .summary-card{
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:19px;
+  border:
+    1px solid var(--line);
+
+  border-radius:19px;
+
+  padding:20px;
+
   background:#fff;
 }
 
-.summary-card .letter{
-  width:47px;
-  height:47px;
-  border-radius:12px;
+
+.summary-letter{
+  width:50px;
+
+  height:50px;
+
+  border-radius:13px;
+
   display:grid;
+
   place-items:center;
+
+  margin-bottom:13px;
+
   color:#fff;
-  font-size:24px;
+
+  font-size:25px;
+
   font-weight:950;
-  margin-bottom:12px;
 }
+
 
 .summary-card h3{
-  margin:0 0 5px;
+  margin:
+    0 0 7px;
 }
 
+
 .summary-card p{
-  font-size:14px;
   margin:0;
+
+  font-size:14px;
 }
 
 
@@ -675,100 +1217,156 @@ p{
 
 .quiz-wrap{
   max-width:900px;
-  margin:0 auto;
+
+  margin:
+    0 auto;
 }
+
 
 .quiz-head{
   display:flex;
+
   justify-content:space-between;
-  gap:20px;
+
   align-items:center;
+
+  gap:18px;
 }
 
+
 .score-chip{
-  padding:9px 13px;
+  padding:
+    9px 13px;
+
   border-radius:999px;
-  background:var(--soft);
+
+  background:#edf6f3;
+
   color:var(--deep);
+
   font-size:13px;
+
   font-weight:900;
 }
 
+
 .scenario{
   margin-top:20px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
   border-radius:21px;
-  background:#fafcfb;
+
   padding:22px;
+
+  background:#fafcfb;
 }
+
 
 .scenario p{
   margin:0;
+
   color:var(--ink);
+
   font-size:20px;
 }
 
+
 .option{
-  display:block;
   width:100%;
+
   margin-top:10px;
+
+  padding:
+    14px 16px;
+
   text-align:left;
-  padding:14px 16px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
   border-radius:13px;
+
   background:#fff;
+
   cursor:pointer;
 }
 
+
 .option.correct{
   background:#edf8f1;
+
   border-color:#66af82;
 }
 
+
 .option.wrong{
   background:#fff2ef;
+
   border-color:#da9786;
 }
+
 
 .option:disabled{
   cursor:default;
 }
 
+
 .feedback{
   display:none;
+
   margin-top:16px;
+
   padding:14px;
+
   border-radius:13px;
 }
+
 
 .feedback.show{
   display:block;
 }
 
+
 .feedback.ok{
   background:#edf8f1;
+
   color:#2a6148;
 }
 
+
 .feedback.bad{
   background:#fff2ef;
+
   color:#7d4036;
 }
 
+
 .quiz-next{
-  text-align:right;
   margin-top:18px;
+
+  text-align:right;
 }
 
+
 .quiz-next button{
+  padding:
+    12px 18px;
+
   border:0;
+
   border-radius:12px;
-  padding:12px 18px;
+
   background:var(--teal);
+
   color:#fff;
+
   font-weight:900;
+
   cursor:pointer;
 }
+
 
 .quiz-next button:disabled{
   opacity:.4;
@@ -781,73 +1379,127 @@ p{
 
 .result-card{
   max-width:760px;
-  margin:0 auto;
-  text-align:center;
+
+  margin:
+    0 auto;
+
   padding:34px;
+
+  text-align:center;
+
+  border:
+    1px solid var(--line);
+
   border-radius:28px;
-  border:1px solid var(--line);
-  background:linear-gradient(
-    145deg,
-    #fbfcfb,
-    #f0f6f3
-  );
+
+  background:
+    linear-gradient(
+      145deg,
+      #fbfcfb,
+      #f0f6f3
+    );
 }
 
+
 .result-ring{
+  --angle:0deg;
+
   width:154px;
+
   height:154px;
-  margin:10px auto 18px;
+
+  margin:
+    10px auto 18px;
+
   border-radius:50%;
+
   display:grid;
+
   place-items:center;
-  background:conic-gradient(
-    var(--teal) var(--angle),
-    #e3ebe8 0
-  );
+
   position:relative;
+
+  background:
+    conic-gradient(
+      var(--teal)
+      var(--angle),
+      #e3ebe8 0
+    );
 }
+
 
 .result-ring::after{
   content:"";
+
   position:absolute;
+
   inset:14px;
+
   border-radius:50%;
+
   background:#fff;
 }
+
 
 .result-number{
   position:relative;
+
   z-index:2;
+
   font-size:38px;
+
   font-weight:950;
 }
 
+
 .result-meta{
   display:flex;
+
   justify-content:center;
+
   flex-wrap:wrap;
+
   gap:9px;
+
   margin-top:17px;
 }
 
+
 .meta{
-  padding:9px 12px;
-  border:1px solid var(--line);
+  padding:
+    9px 12px;
+
+  border:
+    1px solid var(--line);
+
   border-radius:12px;
+
   background:#fff;
-  font-size:13px;
-  font-weight:850;
+
   color:#53656a;
+
+  font-size:13px;
+
+  font-weight:850;
 }
+
 
 .status{
   margin-top:20px;
+
   padding:14px;
+
+  border:
+    1px solid #cfe0da;
+
   border-radius:13px;
+
   background:#f5faf8;
-  border:1px solid #cfe0da;
+
   color:#48625c;
+
   font-size:14px;
+
   line-height:1.5;
 }
 
@@ -858,99 +1510,157 @@ p{
 
 .certificate{
   display:none;
+
   margin-top:26px;
+
   padding:34px;
-  border:2px solid var(--teal);
+
+  border:
+    2px solid var(--teal);
+
   border-radius:23px;
+
   background:#fff;
 }
+
 
 .certificate.show{
   display:block;
 }
 
+
 .cert-label{
   color:var(--teal);
+
   font-size:12px;
+
   font-weight:900;
+
   text-transform:uppercase;
+
   letter-spacing:.11em;
 }
 
+
 .cert-name{
+  margin:
+    13px 0;
+
   font-size:32px;
+
   font-weight:950;
-  margin:13px 0;
 }
 
+
 .cert-module{
+  margin:
+    10px 0 16px;
+
   color:var(--deep);
+
   font-size:27px;
+
   font-weight:900;
-  margin:10px 0 16px;
 }
+
 
 .cert-copy{
   color:#526369;
+
   font-size:16px;
 }
+
 
 .cert-controls button,
 .retry{
   margin-top:18px;
+
+  padding:
+    12px 18px;
+
   border:0;
+
   border-radius:12px;
-  padding:12px 18px;
+
   background:var(--teal);
+
   color:#fff;
+
   font-weight:900;
+
   cursor:pointer;
 }
 
 
 /* =========================================================
-   NAV
+   BOTTOM NAV
    ========================================================= */
 
 .bottom-nav{
   position:absolute;
+
   left:0;
+
   right:0;
+
   bottom:0;
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
-  padding:15px 28px;
-  border-top:1px solid var(--line);
-  background:rgba(255,255,255,.95);
+
+  padding:
+    15px 28px;
+
+  border-top:
+    1px solid var(--line);
+
+  background:
+    rgba(255,255,255,.96);
 }
 
+
 .nav-btn{
-  border:0;
-  border-radius:12px;
-  padding:12px 17px;
   min-height:44px;
+
+  padding:
+    12px 17px;
+
+  border:0;
+
+  border-radius:12px;
+
   font-weight:900;
+
   cursor:pointer;
 }
 
+
 .nav-back{
   background:#edf1f1;
+
   color:#526166;
 }
 
+
 .nav-next{
   background:var(--teal);
+
   color:#fff;
 }
+
 
 .nav-btn:disabled{
   opacity:.4;
 }
 
+
 .time{
-  font-size:13px;
   color:var(--muted);
+
+  font-size:13px;
 }
 
 
@@ -958,7 +1668,7 @@ p{
    RESPONSIVE
    ========================================================= */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
   .intro-grid,
   .build-grid{
@@ -966,35 +1676,69 @@ p{
   }
 
   .summary-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  main{
-    padding:32px 26px 105px;
+    grid-template-columns:
+      1fr 1fr;
   }
 
 }
 
 
-@media(max-width:600px){
+@media(max-width:650px){
 
   .shell{
     width:100%;
+
     margin:0;
+
     border-radius:0;
   }
 
+
   main{
-    padding:27px 17px 105px;
+    padding:
+      28px
+      18px
+      104px;
   }
+
 
   .summary-grid{
     grid-template-columns:1fr;
   }
 
-  .scene{
-    transform-origin:top left;
+
+  .intro-visual{
+    min-height:400px;
   }
+
+
+  .intro-stack{
+    transform:
+      scale(.88);
+  }
+
+
+  .scene{
+    height:500px;
+  }
+
+
+  .scene-stack{
+    transform:
+      scale(.75);
+
+    transform-origin:
+      right bottom;
+
+    right:3%;
+  }
+
+
+  .ladder{
+    transform-origin:
+      bottom right;
+  }
+
 
   .time{
     display:none;
@@ -1020,9 +1764,13 @@ p{
 
   #certificate{
     display:block!important;
+
     position:absolute;
+
     left:0;
+
     top:0;
+
     width:100%;
   }
 
@@ -1033,6 +1781,7 @@ p{
 }
 
 </style>
+
 </head>
 
 
@@ -1042,15 +1791,18 @@ p{
 
   <div class="topline"></div>
 
+
   <div class="header">
 
     <div class="brand">
       5-MINUTE LEARNING
     </div>
 
+
     <div class="progress">
       <i id="progress"></i>
     </div>
+
 
     <div
       class="count"
@@ -1076,22 +1828,26 @@ p{
 
       <div class="intro-grid">
 
+
         <div>
 
           <div class="eyebrow">
-            Role clarity • Team effectiveness
+            Role clarity • Collaboration • Ownership
           </div>
+
 
           <h1>
             RACI
           </h1>
 
+
           <p class="lead">
-            When everyone is involved, it can become unclear
-            who actually does the work, who owns the result,
-            who should be consulted and who simply needs
-            to stay informed.
+            When several people are involved in the same
+            project, clarity matters. RACI helps define who
+            does the work, who owns the outcome, whose input
+            is required and who simply needs to stay updated.
           </p>
+
 
           <div class="pills">
 
@@ -1104,7 +1860,7 @@ p{
             </span>
 
             <span class="pill">
-              Workplace scenarios
+              7 scenarios
             </span>
 
             <span class="pill">
@@ -1132,53 +1888,79 @@ p{
         </div>
 
 
+
+        <!-- INTRO 3D RACI -->
+
         <div class="intro-visual">
 
-          <div class="mini-stack">
+          <div class="intro-stack">
 
-            <div
-              class="mini-block"
-              style="background:var(--r)"
-            >
-              <b>R</b>
-              <span>Responsible</span>
+
+            <div class="cube cube-r">
+
+              <div class="cube-letter">
+                R
+              </div>
+
+              <div class="cube-label">
+                Responsible
+              </div>
+
             </div>
 
-            <div
-              class="mini-block"
-              style="background:var(--a)"
-            >
-              <b>A</b>
-              <span>Accountable</span>
+
+            <div class="cube cube-a">
+
+              <div class="cube-letter">
+                A
+              </div>
+
+              <div class="cube-label">
+                Accountable
+              </div>
+
             </div>
 
-            <div
-              class="mini-block"
-              style="background:var(--c)"
-            >
-              <b>C</b>
-              <span>Consulted</span>
+
+            <div class="cube cube-c">
+
+              <div class="cube-letter">
+                C
+              </div>
+
+              <div class="cube-label">
+                Consulted
+              </div>
+
             </div>
 
-            <div
-              class="mini-block"
-              style="background:var(--i)"
-            >
-              <b>I</b>
-              <span>Informed</span>
+
+            <div class="cube cube-i">
+
+              <div class="cube-letter">
+                I
+              </div>
+
+              <div class="cube-label">
+                Informed
+              </div>
+
             </div>
+
 
           </div>
 
         </div>
+
 
       </div>
 
     </section>
 
 
+
     <!-- ===================================================
-         BUILD RACI
+         BUILD
          =================================================== -->
 
     <section
@@ -1187,116 +1969,385 @@ p{
     >
 
       <div class="eyebrow">
-        Build the RACI stack
+        Build the RACI model
       </div>
 
+
       <h2>
-        One project. Four different roles.
+        One project. Four distinct roles.
       </h2>
 
+
       <p>
-        Follow the builder as each RACI role is added.
+        Watch how each role adds a different type
+        of clarity to the project.
       </p>
 
 
       <div class="build-grid">
 
 
-        <div
-          class="scene"
-          id="scene"
-        >
+        <!-- ANIMATION SCENE -->
 
-          <div class="floor"></div>
+        <div class="scene">
 
+
+          <div class="scene-floor"></div>
+
+
+
+          <!-- LADDER -->
 
           <div
             class="ladder"
             id="ladder"
           >
-            <i class="rung"></i>
-            <i class="rung"></i>
-            <i class="rung"></i>
-            <i class="rung"></i>
+
+            <div class="ladder-side left"></div>
+
+            <div class="ladder-side right"></div>
+
+            <div class="ladder-rung r1"></div>
+
+            <div class="ladder-rung r2"></div>
+
+            <div class="ladder-rung r3"></div>
+
+            <div class="ladder-rung r4"></div>
+
           </div>
 
 
-          <div class="stack">
+
+          <!-- STACK -->
+
+          <div class="scene-stack">
+
 
             <div
-              class="raci-block block-r"
+              class="cube scene-cube cube-r"
               id="blockR"
             >
-              <strong>R</strong>
-              <span>RESPONSIBLE</span>
+
+              <div class="cube-letter">
+                R
+              </div>
+
+              <div class="cube-label">
+                Responsible
+              </div>
+
             </div>
 
+
+
             <div
-              class="raci-block block-a"
+              class="cube scene-cube cube-a"
               id="blockA"
             >
-              <strong>A</strong>
-              <span>ACCOUNTABLE</span>
+
+              <div class="cube-letter">
+                A
+              </div>
+
+              <div class="cube-label">
+                Accountable
+              </div>
+
             </div>
 
+
+
             <div
-              class="raci-block block-c"
+              class="cube scene-cube cube-c"
               id="blockC"
             >
-              <strong>C</strong>
-              <span>CONSULTED</span>
+
+              <div class="cube-letter">
+                C
+              </div>
+
+              <div class="cube-label">
+                Consulted
+              </div>
+
             </div>
 
+
+
             <div
-              class="raci-block block-i"
+              class="cube scene-cube cube-i"
               id="blockI"
             >
-              <strong>I</strong>
-              <span>INFORMED</span>
+
+              <div class="cube-letter">
+                I
+              </div>
+
+              <div class="cube-label">
+                Informed
+              </div>
+
             </div>
+
 
           </div>
 
 
+
+          <!-- PROFESSIONAL WORKER -->
+
           <div
-            class="person"
-            id="person"
+            class="worker"
+            id="worker"
           >
 
-            <div class="hair"></div>
-            <div class="head"></div>
-            <div class="body"></div>
-            <div class="tie"></div>
 
-            <div class="arm one"></div>
-            <div class="arm two"></div>
+            <svg
+              viewBox="0 0 112 235"
+              aria-hidden="true"
+            >
 
-            <div class="leg one"></div>
-            <div class="leg two"></div>
+
+              <!-- subtle shadow -->
+
+              <ellipse
+                cx="55"
+                cy="229"
+                rx="34"
+                ry="5"
+                fill="rgba(20,55,58,.18)"
+              />
+
+
+              <!-- rear arm -->
+
+              <path
+                d="M34 91
+                   C23 112 19 132 15 151"
+                fill="none"
+                stroke="#D89B74"
+                stroke-width="10"
+                stroke-linecap="round"
+              />
+
+
+              <!-- legs -->
+
+              <g class="leg-left">
+
+                <path
+                  d="M47 151 L43 215"
+                  fill="none"
+                  stroke="#17383C"
+                  stroke-width="14"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M42 214 L30 225"
+                  fill="none"
+                  stroke="#162A2E"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+
+              </g>
+
+
+              <g class="leg-right">
+
+                <path
+                  d="M66 151 L71 215"
+                  fill="none"
+                  stroke="#17383C"
+                  stroke-width="14"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M70 214 L83 225"
+                  fill="none"
+                  stroke="#162A2E"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+
+              </g>
+
+
+
+              <!-- shirt -->
+
+              <path
+                d="
+                  M35 74
+                  Q55 65 75 74
+                  L78 151
+                  Q56 161 32 151
+                  Z
+                "
+                fill="#F8FAF9"
+                stroke="#DDE6E4"
+                stroke-width="2"
+              />
+
+
+              <!-- shirt collar -->
+
+              <path
+                d="M47 75 L55 86 L63 75"
+                fill="#E8EEEC"
+              />
+
+
+              <!-- tie -->
+
+              <path
+                d="
+                  M52 82
+                  L58 82
+                  L60 91
+                  L56 134
+                  L51 91
+                  Z
+                "
+                fill="#D9524E"
+              />
+
+
+              <!-- neck -->
+
+              <rect
+                x="49"
+                y="60"
+                width="14"
+                height="17"
+                rx="6"
+                fill="#D89B74"
+              />
+
+
+              <!-- head -->
+
+              <ellipse
+                cx="56"
+                cy="46"
+                rx="22"
+                ry="25"
+                fill="#D89B74"
+              />
+
+
+              <!-- hair -->
+
+              <path
+                d="
+                  M34 43
+                  Q34 18 57 18
+                  Q79 18 79 43
+                  Q72 30 61 29
+                  Q46 28 34 43
+                "
+                fill="#4C2928"
+              />
+
+
+              <!-- ear -->
+
+              <ellipse
+                cx="35"
+                cy="48"
+                rx="3"
+                ry="6"
+                fill="#D89B74"
+              />
+
+
+              <!-- subtle face profile -->
+
+              <circle
+                cx="70"
+                cy="45"
+                r="1.5"
+                fill="#543A34"
+              />
+
+              <path
+                d="M68 56 Q73 58 76 54"
+                fill="none"
+                stroke="#9D6C55"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+
+
+              <!-- front arm -->
+
+              <path
+                d="M73 91
+                   C84 111 88 130 94 147"
+                fill="none"
+                stroke="#D89B74"
+                stroke-width="10"
+                stroke-linecap="round"
+              />
+
+
+              <!-- sleeves -->
+
+              <path
+                d="M34 82 Q26 87 25 100"
+                fill="none"
+                stroke="#F8FAF9"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M75 82 Q84 87 85 100"
+                fill="none"
+                stroke="#F8FAF9"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+
+
+            </svg>
+
+
+
+            <!-- BLOCK HELD BY WORKER -->
 
             <div
-              class="carry-block"
-              id="carryBlock"
+              class="carry-cube"
+              id="carryCube"
             >
               R
             </div>
 
+
           </div>
+
 
         </div>
 
 
+
+        <!-- EXPLANATION -->
+
         <div class="explain-card">
 
-          <div class="role-label">
+
+          <div class="role-head">
 
             <div
               class="role-letter"
               id="roleLetter"
-              style="background:#d4dddd"
             >
               ?
             </div>
+
 
             <div>
 
@@ -1313,6 +2364,7 @@ p{
           </div>
 
 
+
           <div
             class="role-question"
             id="roleQuestion"
@@ -1321,33 +2373,43 @@ p{
           </div>
 
 
-          <p id="roleCopy">
-            Click below to bring the first RACI block into the project.
+
+          <p
+            class="role-copy"
+            id="roleCopy"
+          >
+            Bring the first block into the project
+            to begin building the RACI model.
           </p>
+
 
 
           <div
             class="key-point"
             id="roleTip"
           >
-            RACI helps prevent unclear ownership, duplicated effort
-            and unnecessary communication.
+            RACI helps reduce unclear ownership,
+            duplicated effort and unnecessary communication.
           </div>
 
 
+
           <button
-            type="button"
             class="build-btn"
             id="buildBtn"
+            type="button"
           >
             Bring the R block →
           </button>
 
+
         </div>
+
 
       </div>
 
     </section>
+
 
 
     <!-- ===================================================
@@ -1363,23 +2425,29 @@ p{
         RACI in one view
       </div>
 
+
       <h2>
         Four roles. Four different expectations.
       </h2>
 
+
       <p>
-        The value of RACI is not the letters themselves.
-        It is the clarity they create before work begins.
+        RACI works when each stakeholder understands
+        the type of involvement expected from them.
       </p>
+
 
 
       <div class="summary-grid">
 
+
         <div class="summary-card">
 
           <div
-            class="letter"
-            style="background:var(--r)"
+            class="summary-letter"
+            style="
+              background:var(--r)
+            "
           >
             R
           </div>
@@ -1389,18 +2457,21 @@ p{
           </h3>
 
           <p>
-            Performs the work required to complete
+            Performs the work needed to complete
             the task or deliverable.
           </p>
 
         </div>
 
 
+
         <div class="summary-card">
 
           <div
-            class="letter"
-            style="background:var(--a)"
+            class="summary-letter"
+            style="
+              background:var(--a)
+            "
           >
             A
           </div>
@@ -1410,18 +2481,21 @@ p{
           </h3>
 
           <p>
-            Owns the final result and has the authority
-            to approve or make the final decision.
+            Owns the final outcome and has
+            final approval or decision authority.
           </p>
 
         </div>
 
 
+
         <div class="summary-card">
 
           <div
-            class="letter"
-            style="background:var(--c)"
+            class="summary-letter"
+            style="
+              background:var(--c)
+            "
           >
             C
           </div>
@@ -1438,11 +2512,14 @@ p{
         </div>
 
 
+
         <div class="summary-card">
 
           <div
-            class="letter"
-            style="background:var(--i)"
+            class="summary-letter"
+            style="
+              background:var(--i)
+            "
           >
             I
           </div>
@@ -1452,13 +2529,15 @@ p{
           </h3>
 
           <p>
-            Needs visibility or updates but does
-            not actively contribute to the decision.
+            Needs visibility or updates without
+            directly contributing to the decision.
           </p>
 
         </div>
 
+
       </div>
+
 
 
       <div
@@ -1468,17 +2547,19 @@ p{
           font-size:16px
         "
       >
-        <b>Useful rule:</b>
-        A task can have multiple Responsible people,
+        <b>Useful principle:</b>
+        A task may have multiple Responsible contributors,
         but keeping one clear Accountable owner usually
-        makes decision-making simpler.
+        improves decision-making.
       </div>
+
 
     </section>
 
 
+
     <!-- ===================================================
-         QUIZ
+         KNOWLEDGE CHECK
          =================================================== -->
 
     <section
@@ -1514,11 +2595,14 @@ p{
         </div>
 
 
+
         <p>
           Answer all seven workplace scenarios.
-          You need at least <b>6 out of 7</b>
+          You need at least
+          <b>6 out of 7</b>
           correct to complete the module.
         </p>
+
 
 
         <div class="scenario">
@@ -1528,7 +2612,9 @@ p{
         </div>
 
 
+
         <div id="options"></div>
+
 
 
         <div
@@ -1537,11 +2623,12 @@ p{
         ></div>
 
 
+
         <div class="quiz-next">
 
           <button
-            type="button"
             id="quizNext"
+            type="button"
             disabled
           >
             Next question →
@@ -1549,9 +2636,11 @@ p{
 
         </div>
 
+
       </div>
 
     </section>
+
 
 
     <!-- ===================================================
@@ -1565,15 +2654,16 @@ p{
 
       <div class="result-card">
 
+
         <div class="eyebrow">
           Your result
         </div>
 
 
+
         <div
           class="result-ring"
           id="resultRing"
-          style="--angle:0deg"
         >
 
           <div
@@ -1586,12 +2676,15 @@ p{
         </div>
 
 
+
         <h2 id="resultTitle">
           Result
         </h2>
 
 
+
         <p id="resultText"></p>
+
 
 
         <div class="result-meta">
@@ -1614,6 +2707,7 @@ p{
         </div>
 
 
+
         <div
           class="status"
           id="recordStatus"
@@ -1622,36 +2716,47 @@ p{
         </div>
 
 
+
+        <!-- CERTIFICATE -->
+
         <div
           class="certificate"
           id="certificate"
         >
 
+
           <div class="cert-label">
             Certificate of Completion
           </div>
 
+
           <div class="cert-copy">
             This certifies that
           </div>
+
 
           <div
             class="cert-name"
             id="certName"
           ></div>
 
+
           <div class="cert-copy">
             has successfully completed
           </div>
+
 
           <div class="cert-module">
             RACI — Who Does What?
           </div>
 
+
           <div class="cert-copy">
-            and demonstrated an understanding of
+            and demonstrated understanding of
             Responsible, Accountable, Consulted and Informed roles.
           </div>
+
+
 
           <div class="result-meta">
 
@@ -1668,6 +2773,7 @@ p{
           </div>
 
 
+
           <div class="cert-controls">
 
             <button
@@ -1679,7 +2785,9 @@ p{
 
           </div>
 
+
         </div>
+
 
 
         <button
@@ -1690,6 +2798,7 @@ p{
           Retry knowledge check
         </button>
 
+
       </div>
 
     </section>
@@ -1698,8 +2807,9 @@ p{
   </main>
 
 
+
   <!-- =====================================================
-       BOTTOM NAV
+       NAV
        ===================================================== -->
 
   <div
@@ -1708,12 +2818,13 @@ p{
   >
 
     <button
-      type="button"
       class="nav-btn nav-back"
       id="back"
+      type="button"
     >
       ← Back
     </button>
+
 
     <div
       class="time"
@@ -1722,17 +2833,21 @@ p{
       Estimated time: 5 min
     </div>
 
+
     <button
-      type="button"
       class="nav-btn nav-next"
       id="next"
+      type="button"
     >
       Start →
     </button>
 
+
   </div>
 
+
 </div>
+
 
 
 <!-- =======================================================
@@ -1744,6 +2859,7 @@ p{
   style="display:none"
   title="Tracking"
 ></iframe>
+
 
 <form
   id="trackingForm"
@@ -1779,17 +2895,21 @@ p{
 </form>
 
 
+
 <script>
 
+
 /* =========================================================
-   CONFIG
+   TRACKING CONFIG
    ========================================================= */
 
 const TRACKING_URL =
 'https://script.google.com/a/macros/numerator.com/s/AKfycbw9a4dIXIKH9pRP8uJDBmgBWUtnSxsMa-wG9uciDxuDQ5ky5la_83E7V4oz0xeadcLjbw/exec';
 
+
 const MODULE =
 'RACI';
+
 
 const PASS_PERCENT =
 85;
@@ -1802,158 +2922,238 @@ const PASS_PERCENT =
 const roles = [
 
   {
+
     letter:'R',
+
     name:'Responsible',
-    color:'#ef9f36',
-    question:'Who does the work?',
+
+    color:'#f2a12f',
+
+    question:
+      'Who does the work?',
+
     copy:
-      'Responsible is the person or people who actually perform the task and produce the deliverable.',
+      'Responsible is the person or people who perform the task and produce the required deliverable.',
+
     tip:
-      'A task can have more than one Responsible person, but each person should understand exactly what they are expected to deliver.',
+      'A task can have more than one Responsible contributor, but the expected work should still be clear.',
+
     block:'blockR'
+
   },
 
+
   {
+
     letter:'A',
+
     name:'Accountable',
-    color:'#d96b5f',
-    question:'Who owns the final result?',
+
+    color:'#df675b',
+
+    question:
+      'Who owns the final result?',
+
     copy:
       'Accountable is the person ultimately answerable for the outcome. They approve the work or make the final decision.',
+
     tip:
-      'Keeping one clear Accountable owner helps prevent delayed decisions and unclear ownership.',
+      'Keeping one clearly identified Accountable owner reduces ambiguity around final ownership.',
+
     block:'blockA'
+
   },
 
+
   {
+
     letter:'C',
+
     name:'Consulted',
-    color:'#55a9a3',
-    question:'Whose input do we need?',
+
+    color:'#237f7a',
+
+    question:
+      'Whose input do we need?',
+
     copy:
-      'Consulted people provide expertise, advice or context before the work or decision is completed.',
+      'Consulted stakeholders provide expertise, advice or context before the work or decision is finalised.',
+
     tip:
-      'Consultation is two-way communication: ask for input, consider it, then proceed.',
+      'Consultation is two-way communication. Ask for input where it genuinely improves the decision.',
+
     block:'blockC'
+
   },
 
+
   {
+
     letter:'I',
+
     name:'Informed',
-    color:'#7c8eb8',
-    question:'Who needs to know?',
+
+    color:'#788dbd',
+
+    question:
+      'Who needs to know?',
+
     copy:
       'Informed stakeholders need visibility on progress or decisions but are not required to contribute directly.',
+
     tip:
-      'Informed is mainly one-way communication. Keeping too many people in this category can create unnecessary updates.',
+      'Informed is primarily one-way communication: keep relevant stakeholders updated without creating unnecessary involvement.',
+
     block:'blockI'
+
   }
 
 ];
 
 
 /* =========================================================
-   QUIZ
+   QUIZ DATA
    ========================================================= */
 
 const questions = [
 
   {
+
     text:
       'Priya is assigned to prepare the first draft of a monthly performance report. Which RACI role best describes Priya?',
+
     options:[
       'Responsible',
       'Accountable',
       'Consulted',
       'Informed'
     ],
+
     answer:0,
+
     explanation:
       'Priya is Responsible because she is performing the work required to create the report.'
+
   },
 
+
   {
+
     text:
       'The Team Lead reviews the completed report, owns the final quality and gives approval before it is shared. Which role is this?',
+
     options:[
       'Responsible',
       'Accountable',
       'Consulted',
       'Informed'
     ],
+
     answer:1,
+
     explanation:
       'The Team Lead is Accountable because they own the final result and approval.'
+
   },
 
+
   {
+
     text:
       'Before changing a workflow, the project team asks an experienced SME for technical input. The SME does not own or execute the project. Which role fits best?',
+
     options:[
       'Responsible',
       'Accountable',
       'Consulted',
       'Informed'
     ],
+
     answer:2,
+
     explanation:
       'The SME is Consulted because their expertise is requested before the decision is finalised.'
+
   },
 
+
   {
+
     text:
       'A senior stakeholder does not need to contribute to a project but needs regular updates on its progress. Which RACI role fits best?',
+
     options:[
       'Responsible',
       'Accountable',
       'Consulted',
       'Informed'
     ],
+
     answer:3,
+
     explanation:
-      'The stakeholder is Informed because they require visibility but are not actively contributing.'
+      'The stakeholder is Informed because they require visibility without active involvement.'
+
   },
 
+
   {
+
     text:
       'Which RACI role is generally best kept to one clearly identified person for a specific task or decision?',
+
     options:[
       'Responsible',
       'Accountable',
       'Consulted',
       'Informed'
     ],
+
     answer:1,
+
     explanation:
       'A single Accountable owner reduces ambiguity around final ownership and decision-making.'
+
   },
 
+
   {
+
     text:
       'A project has six people marked Consulted for almost every task. Meetings are becoming slow and decisions are repeatedly delayed. What is the most likely RACI issue?',
+
     options:[
       'There are too few Responsible people',
       'Too many stakeholders are being consulted',
       'There is no need for an Accountable person',
       'Everyone should be moved to Informed'
     ],
+
     answer:1,
+
     explanation:
-      'Over-consultation can slow decision-making. RACI should clarify where input is genuinely required.'
+      'Over-consultation can slow decision-making. RACI should identify where stakeholder input is genuinely necessary.'
+
   },
 
+
   {
+
     text:
       'Which situation is the strongest reason to create a RACI matrix?',
+
     options:[
       'A simple task completed independently by one person',
       'A cross-functional project where ownership and stakeholder involvement are unclear',
       'A personal to-do list',
       'A meeting where everyone already understands their responsibility'
     ],
+
     answer:1,
+
     explanation:
-      'RACI is most useful where multiple stakeholders are involved and ownership, input and communication responsibilities need clarification.'
+      'RACI is most useful when multiple stakeholders are involved and ownership, input and communication responsibilities need clarification.'
+
   }
 
 ];
@@ -1964,59 +3164,132 @@ const questions = [
    ========================================================= */
 
 const screens = [
-  document.getElementById('intro'),
-  document.getElementById('build'),
-  document.getElementById('summary'),
-  document.getElementById('quiz'),
-  document.getElementById('result')
+
+  document.getElementById(
+    'intro'
+  ),
+
+  document.getElementById(
+    'build'
+  ),
+
+  document.getElementById(
+    'summary'
+  ),
+
+  document.getElementById(
+    'quiz'
+  ),
+
+  document.getElementById(
+    'result'
+  )
+
 ];
 
-let screenIndex = 0;
-let roleIndex = 0;
 
-let quizIndex = 0;
-let correct = 0;
+let screenIndex =
+0;
+
+
+let roleIndex =
+0;
+
+
+let quizIndex =
+0;
+
+
+let correct =
+0;
+
 
 let answers =
 Array(
   questions.length
 ).fill(null);
 
+
 let completionSubmitted =
 false;
+
 
 let buildBusy =
 false;
 
 
 /* =========================================================
-   GENERAL ELEMENTS
+   ELEMENTS
    ========================================================= */
 
 const progress =
-document.getElementById('progress');
+document.getElementById(
+  'progress'
+);
+
 
 const count =
-document.getElementById('count');
+document.getElementById(
+  'count'
+);
+
 
 const back =
-document.getElementById('back');
+document.getElementById(
+  'back'
+);
+
 
 const next =
-document.getElementById('next');
+document.getElementById(
+  'next'
+);
+
 
 const bottomNav =
-document.getElementById('bottomNav');
+document.getElementById(
+  'bottomNav'
+);
+
 
 const time =
-document.getElementById('time');
+document.getElementById(
+  'time'
+);
+
 
 const learnerName =
-document.getElementById('learnerName');
+document.getElementById(
+  'learnerName'
+);
+
+
+const worker =
+document.getElementById(
+  'worker'
+);
+
+
+const carryCube =
+document.getElementById(
+  'carryCube'
+);
+
+
+const ladder =
+document.getElementById(
+  'ladder'
+);
+
+
+const buildBtn =
+document.getElementById(
+  'buildBtn'
+);
 
 
 /* =========================================================
-   NAVIGATION
+   GENERAL NAV
    ========================================================= */
 
 function showScreen(index){
@@ -2030,20 +3303,33 @@ function showScreen(index){
     )
   );
 
+
   screens.forEach(
-    (screen,i) =>
-    screen.classList.toggle(
-      'active',
-      i === screenIndex
-    )
+    (screen,i) => {
+
+      screen
+        .classList
+        .toggle(
+          'active',
+          i === screenIndex
+        );
+
+    }
   );
 
 
-  const progressMap =
-  [8,45,65,80,100];
+  const map =
+  [
+    8,
+    45,
+    64,
+    80,
+    100
+  ];
+
 
   progress.style.width =
-  progressMap[screenIndex] + '%';
+  map[screenIndex] + '%';
 
 
   if(screenIndex === 0){
@@ -2061,17 +3347,21 @@ function showScreen(index){
     'Start →';
 
     next.disabled =
-    learnerName.value.trim().length < 2;
+    learnerName
+      .value
+      .trim()
+      .length < 2;
 
     time.textContent =
     'Estimated time: 5 min';
 
     bottomNav.style.display =
     'flex';
+
   }
 
 
-  if(screenIndex === 1){
+  else if(screenIndex === 1){
 
     count.textContent =
     'Build RACI';
@@ -2087,10 +3377,11 @@ function showScreen(index){
 
     bottomNav.style.display =
     'flex';
+
   }
 
 
-  if(screenIndex === 2){
+  else if(screenIndex === 2){
 
     count.textContent =
     'RACI summary';
@@ -2112,10 +3403,11 @@ function showScreen(index){
 
     bottomNav.style.display =
     'flex';
+
   }
 
 
-  if(screenIndex === 3){
+  else if(screenIndex === 3){
 
     count.textContent =
     `Question ${quizIndex + 1} / ${questions.length}`;
@@ -2126,17 +3418,18 @@ function showScreen(index){
     next.style.display =
     'none';
 
-    bottomNav.style.display =
-    'flex';
-
     time.textContent =
     'Knowledge check';
 
+    bottomNav.style.display =
+    'flex';
+
     renderQuestion();
+
   }
 
 
-  if(screenIndex === 4){
+  else if(screenIndex === 4){
 
     count.textContent =
     'Result';
@@ -2145,6 +3438,7 @@ function showScreen(index){
     'none';
 
     renderResult();
+
   }
 
 
@@ -2160,14 +3454,18 @@ function showScreen(index){
    NAME
    ========================================================= */
 
-learnerName.addEventListener(
+learnerName
+.addEventListener(
   'input',
   () => {
 
     if(screenIndex === 0){
 
       next.disabled =
-      learnerName.value.trim().length < 2;
+      learnerName
+        .value
+        .trim()
+        .length < 2;
 
     }
 
@@ -2176,42 +3474,59 @@ learnerName.addEventListener(
 
 
 /* =========================================================
-   MAIN NAV BUTTONS
+   MAIN NAV EVENTS
    ========================================================= */
 
-next.addEventListener(
+next
+.addEventListener(
   'click',
   () => {
 
     if(
       screenIndex === 0 &&
-      learnerName.value.trim().length >= 2
+      learnerName
+        .value
+        .trim()
+        .length >= 2
     ){
+
       showScreen(1);
+
     }
 
-    else if(screenIndex === 2){
+    else if(
+      screenIndex === 2
+    ){
+
       showScreen(3);
+
     }
 
   }
 );
 
 
-back.addEventListener(
+back
+.addEventListener(
   'click',
   () => {
 
     if(screenIndex === 1){
+
       showScreen(0);
+
     }
 
     else if(screenIndex === 2){
+
       showScreen(1);
+
     }
 
     else if(screenIndex === 3){
+
       showScreen(2);
+
     }
 
   }
@@ -2219,51 +3534,53 @@ back.addEventListener(
 
 
 /* =========================================================
-   RACI BUILD
+   ROLE EXPLANATION
    ========================================================= */
-
-const person =
-document.getElementById('person');
-
-const carryBlock =
-document.getElementById('carryBlock');
-
-const ladder =
-document.getElementById('ladder');
-
-const buildBtn =
-document.getElementById('buildBtn');
-
 
 function updateExplanation(role){
 
-  document
-    .getElementById('roleLetter')
-    .textContent =
-    role.letter;
+  const roleLetter =
+  document.getElementById(
+    'roleLetter'
+  );
+
+
+  roleLetter.textContent =
+  role.letter;
+
+
+  roleLetter.style.background =
+  role.color;
+
 
   document
-    .getElementById('roleLetter')
-    .style.background =
-    role.color;
-
-  document
-    .getElementById('roleTitle')
+    .getElementById(
+      'roleTitle'
+    )
     .textContent =
     role.name;
 
+
   document
-    .getElementById('roleQuestion')
+    .getElementById(
+      'roleQuestion'
+    )
     .textContent =
     role.question;
 
+
   document
-    .getElementById('roleCopy')
+    .getElementById(
+      'roleCopy'
+    )
     .textContent =
     role.copy;
 
+
   document
-    .getElementById('roleTip')
+    .getElementById(
+      'roleTip'
+    )
     .innerHTML =
     `<b>Remember:</b> ${role.tip}`;
 
@@ -2271,35 +3588,125 @@ function updateExplanation(role){
 
 
 /* =========================================================
-   PERSON HELPERS
+   ANIMATION HELPERS
    ========================================================= */
 
-function setWorker(
-  left,
-  top
-){
+function wait(ms){
 
-  person.style.left =
-  left + 'px';
-
-  person.style.top =
-  top + 'px';
+  return new Promise(
+    resolve =>
+      setTimeout(
+        resolve,
+        ms
+      )
+  );
 
 }
 
 
-function resetWorker(){
+async function moveWorker(
+  left,
+  bottom,
+  mode='walk',
+  duration=1150
+){
 
-  setWorker(
-    60,
-    270
+  worker.style.transitionDuration =
+  `${duration}ms`;
+
+
+  worker.classList.remove(
+    'walking',
+    'climbing'
+  );
+
+
+  if(mode === 'walk'){
+
+    worker.classList.add(
+      'walking'
+    );
+
+  }
+
+
+  if(mode === 'climb'){
+
+    worker.classList.add(
+      'climbing'
+    );
+
+  }
+
+
+  worker.style.left =
+  left;
+
+
+  worker.style.bottom =
+  bottom;
+
+
+  await wait(
+    duration + 40
+  );
+
+
+  worker.classList.remove(
+    'walking'
+  );
+
+}
+
+
+async function resetWorker(){
+
+  await moveWorker(
+    '7%',
+    '65px',
+    'walk',
+    1050
   );
 
 }
 
 
 /* =========================================================
-   BUILD ANIMATION
+   CARRY BLOCK
+   ========================================================= */
+
+function showCarry(role){
+
+  carryCube.textContent =
+  role.letter;
+
+
+  carryCube.style.background =
+  role.color;
+
+
+  carryCube
+    .classList
+    .add(
+      'show'
+    );
+
+}
+
+
+function hideCarry(){
+
+  carryCube
+    .classList
+    .remove(
+      'show'
+    );
+
+}
+
+
+/* =========================================================
+   BUILD SEQUENCE
    ========================================================= */
 
 async function buildRole(){
@@ -2308,182 +3715,275 @@ async function buildRole(){
     return;
   }
 
-  buildBusy = true;
-  buildBtn.disabled = true;
 
-
-  if(roleIndex >= roles.length){
+  if(
+    roleIndex >=
+    roles.length
+  ){
 
     showScreen(2);
+
     return;
 
   }
 
 
+  buildBusy =
+  true;
+
+
+  buildBtn.disabled =
+  true;
+
+
   const role =
-  roles[roleIndex];
-
-
-  carryBlock.textContent =
-  role.letter;
-
-  carryBlock.style.background =
-  role.color;
+  roles[
+    roleIndex
+  ];
 
 
   /* -------------------------------------------------------
-     R
+     RESPONSIBLE
      ------------------------------------------------------- */
 
   if(roleIndex === 0){
 
-    carryBlock.classList.add('show');
+    showCarry(role);
 
-    await wait(200);
+    await wait(250);
 
-    setWorker(
-      455,
-      270
+
+    await moveWorker(
+      '58%',
+      '65px',
+      'walk',
+      1250
     );
 
-    await wait(1200);
 
     document
-      .getElementById(role.block)
+      .getElementById(
+        role.block
+      )
       .classList
-      .add('show');
+      .add(
+        'show'
+      );
 
-    carryBlock.classList.remove('show');
 
-    updateExplanation(role);
+    hideCarry();
 
-    await wait(350);
 
-    resetWorker();
+    updateExplanation(
+      role
+    );
+
+
+    await wait(420);
+
+
+    await resetWorker();
 
   }
 
 
   /* -------------------------------------------------------
-     A
+     ACCOUNTABLE
      ------------------------------------------------------- */
 
-  if(roleIndex === 1){
+  else if(roleIndex === 1){
 
-    carryBlock.classList.add('show');
+    showCarry(role);
 
-    await wait(200);
+    await wait(250);
 
-    setWorker(
-      455,
-      220
+
+    await moveWorker(
+      '58%',
+      '115px',
+      'walk',
+      1250
     );
 
-    await wait(1200);
 
     document
-      .getElementById(role.block)
+      .getElementById(
+        role.block
+      )
       .classList
-      .add('show');
+      .add(
+        'show'
+      );
 
-    carryBlock.classList.remove('show');
 
-    updateExplanation(role);
+    hideCarry();
 
-    await wait(350);
 
-    resetWorker();
+    updateExplanation(
+      role
+    );
+
+
+    await wait(420);
+
+
+    await resetWorker();
 
   }
 
 
   /* -------------------------------------------------------
-     C — BRING LADDER FIRST
+     CONSULTED
      ------------------------------------------------------- */
 
-  if(roleIndex === 2){
+  else if(roleIndex === 2){
 
     /*
-    Person first comes forward,
-    bringing the ladder into the scene.
+    First, bring the ladder into the project.
     */
 
-    setWorker(
-      315,
-      270
+    await moveWorker(
+      '41%',
+      '65px',
+      'walk',
+      850
     );
 
-    await wait(450);
 
-    ladder.classList.add('show');
-
-    await wait(1100);
-
-    resetWorker();
-
-    await wait(450);
+    ladder
+      .classList
+      .add(
+        'show'
+      );
 
 
-    carryBlock.classList.add('show');
+    await wait(1050);
 
-    await wait(200);
+
+    await resetWorker();
+
+
+    await wait(250);
+
 
     /*
-    Climb to third level.
+    Now carry C and climb.
     */
 
-    setWorker(
-      490,
-      135
+    showCarry(role);
+
+
+    await wait(250);
+
+
+    await moveWorker(
+      '48%',
+      '65px',
+      'walk',
+      1000
     );
 
-    await wait(1250);
+
+    await moveWorker(
+      '50%',
+      '215px',
+      'climb',
+      1050
+    );
+
 
     document
-      .getElementById(role.block)
+      .getElementById(
+        role.block
+      )
       .classList
-      .add('show');
+      .add(
+        'show'
+      );
 
-    carryBlock.classList.remove('show');
 
-    updateExplanation(role);
+    hideCarry();
 
-    await wait(350);
 
-    resetWorker();
+    updateExplanation(
+      role
+    );
+
+
+    await wait(400);
+
+
+    await moveWorker(
+      '48%',
+      '65px',
+      'climb',
+      850
+    );
+
+
+    await resetWorker();
 
   }
 
 
   /* -------------------------------------------------------
-     I — CLIMB HIGHER
+     INFORMED
      ------------------------------------------------------- */
 
-  if(roleIndex === 3){
+  else if(roleIndex === 3){
 
-    carryBlock.classList.add('show');
+    showCarry(role);
 
-    await wait(200);
 
-    setWorker(
-      490,
-      55
+    await wait(250);
+
+
+    await moveWorker(
+      '48%',
+      '65px',
+      'walk',
+      1000
     );
 
-    await wait(1250);
+
+    await moveWorker(
+      '50%',
+      '305px',
+      'climb',
+      1150
+    );
+
 
     document
-      .getElementById(role.block)
+      .getElementById(
+        role.block
+      )
       .classList
-      .add('show');
+      .add(
+        'show'
+      );
 
-    carryBlock.classList.remove('show');
 
-    updateExplanation(role);
+    hideCarry();
 
-    await wait(350);
 
-    resetWorker();
+    updateExplanation(
+      role
+    );
+
+
+    await wait(420);
+
+
+    await moveWorker(
+      '48%',
+      '65px',
+      'climb',
+      900
+    );
+
+
+    await resetWorker();
 
   }
 
@@ -2491,13 +3991,13 @@ async function buildRole(){
   roleIndex++;
 
 
-  if(roleIndex < roles.length){
+  if(
+    roleIndex <
+    roles.length
+  ){
 
     buildBtn.textContent =
     `Bring the ${roles[roleIndex].letter} block →`;
-
-    buildBtn.disabled =
-    false;
 
   }
 
@@ -2506,10 +4006,11 @@ async function buildRole(){
     buildBtn.textContent =
     'See RACI together →';
 
-    buildBtn.disabled =
-    false;
-
   }
+
+
+  buildBtn.disabled =
+  false;
 
 
   buildBusy =
@@ -2519,14 +4020,18 @@ async function buildRole(){
 
 
 /* =========================================================
-   BUILD BUTTON
+   BUILD EVENT
    ========================================================= */
 
-buildBtn.addEventListener(
+buildBtn
+.addEventListener(
   'click',
   () => {
 
-    if(roleIndex < roles.length){
+    if(
+      roleIndex <
+      roles.length
+    ){
 
       buildRole();
 
@@ -2542,105 +4047,127 @@ buildBtn.addEventListener(
 );
 
 
-function wait(ms){
-
-  return new Promise(
-    resolve =>
-    setTimeout(
-      resolve,
-      ms
-    )
-  );
-
-}
-
-
 /* =========================================================
    QUIZ RENDER
    ========================================================= */
 
 function renderQuestion(){
 
-  if(quizIndex >= questions.length){
+  if(
+    quizIndex >=
+    questions.length
+  ){
 
     showScreen(4);
+
     return;
 
   }
 
 
   const q =
-  questions[quizIndex];
+  questions[
+    quizIndex
+  ];
 
 
   document
-    .getElementById('quizScore')
+    .getElementById(
+      'quizScore'
+    )
     .textContent =
     `Score: ${correct} / ${quizIndex}`;
 
 
   document
-    .getElementById('questionText')
+    .getElementById(
+      'questionText'
+    )
     .textContent =
     q.text;
 
 
   const options =
-  document.getElementById('options');
+  document.getElementById(
+    'options'
+  );
+
 
   options.innerHTML =
   '';
 
 
   const feedback =
-  document.getElementById('feedback');
+  document.getElementById(
+    'feedback'
+  );
+
 
   feedback.className =
   'feedback';
+
 
   feedback.innerHTML =
   '';
 
 
-  const qNext =
-  document.getElementById('quizNext');
+  const quizNext =
+  document.getElementById(
+    'quizNext'
+  );
 
-  qNext.disabled =
+
+  quizNext.disabled =
   true;
 
-  qNext.textContent =
-  quizIndex === questions.length - 1
-  ?
-  'See my result →'
-  :
-  'Next question →';
+
+  quizNext.textContent =
+  (
+    quizIndex ===
+    questions.length - 1
+  )
+    ?
+    'See my result →'
+    :
+    'Next question →';
 
 
   q.options.forEach(
     (text,i) => {
 
-      const btn =
-      document.createElement('button');
 
-      btn.type =
-      'button';
-
-      btn.className =
-      'option';
-
-      btn.textContent =
-      text;
-
-      btn.addEventListener(
-        'click',
-        () =>
-        answerQuestion(
-          i
-        )
+      const button =
+      document.createElement(
+        'button'
       );
 
+
+      button.type =
+      'button';
+
+
+      button.className =
+      'option';
+
+
+      button.textContent =
+      text;
+
+
+      button.addEventListener(
+        'click',
+        () => {
+
+          answerQuestion(
+            i
+          );
+
+        }
+      );
+
+
       options.appendChild(
-        btn
+        button
       );
 
     }
@@ -2650,29 +4177,41 @@ function renderQuestion(){
 
 
 /* =========================================================
-   ANSWER
+   ANSWER QUESTION
    ========================================================= */
 
 function answerQuestion(choice){
 
   if(
-    answers[quizIndex] !== null
+    answers[
+      quizIndex
+    ] !== null
   ){
+
     return;
+
   }
 
 
   const q =
-  questions[quizIndex];
+  questions[
+    quizIndex
+  ];
 
-  answers[quizIndex] =
+
+  answers[
+    quizIndex
+  ] =
   choice;
 
 
   const buttons =
-  [...document.querySelectorAll(
-    '#options .option'
-  )];
+  [
+    ...document
+      .querySelectorAll(
+        '#options .option'
+      )
+  ];
 
 
   buttons.forEach(
@@ -2681,11 +4220,16 @@ function answerQuestion(choice){
       button.disabled =
       true;
 
-      if(i === q.answer){
+
+      if(
+        i === q.answer
+      ){
 
         button
           .classList
-          .add('correct');
+          .add(
+            'correct'
+          );
 
       }
 
@@ -2694,15 +4238,21 @@ function answerQuestion(choice){
 
 
   const feedback =
-  document.getElementById('feedback');
+  document.getElementById(
+    'feedback'
+  );
 
 
-  if(choice === q.answer){
+  if(
+    choice === q.answer
+  ){
 
     correct++;
 
+
     feedback.className =
     'feedback show ok';
+
 
     feedback.innerHTML =
     `<b>Correct.</b> ${q.explanation}`;
@@ -2715,10 +4265,14 @@ function answerQuestion(choice){
       choice
     ]
       .classList
-      .add('wrong');
+      .add(
+        'wrong'
+      );
+
 
     feedback.className =
     'feedback show bad';
+
 
     feedback.innerHTML =
     `<b>Not quite.</b> ${q.explanation}`;
@@ -2727,13 +4281,17 @@ function answerQuestion(choice){
 
 
   document
-    .getElementById('quizScore')
+    .getElementById(
+      'quizScore'
+    )
     .textContent =
     `Score: ${correct} / ${quizIndex + 1}`;
 
 
   document
-    .getElementById('quizNext')
+    .getElementById(
+      'quizNext'
+    )
     .disabled =
     false;
 
@@ -2741,19 +4299,25 @@ function answerQuestion(choice){
 
 
 /* =========================================================
-   NEXT QUIZ
+   NEXT QUESTION
    ========================================================= */
 
 document
-.getElementById('quizNext')
+.getElementById(
+  'quizNext'
+)
 .addEventListener(
   'click',
   () => {
 
     if(
-      answers[quizIndex] === null
+      answers[
+        quizIndex
+      ] === null
     ){
+
       return;
+
     }
 
 
@@ -2761,7 +4325,8 @@ document
 
 
     if(
-      quizIndex >= questions.length
+      quizIndex >=
+      questions.length
     ){
 
       showScreen(4);
@@ -2773,7 +4338,9 @@ document
       count.textContent =
       `Question ${quizIndex + 1} / ${questions.length}`;
 
+
       renderQuestion();
+
 
       window.scrollTo({
         top:0,
@@ -2796,20 +4363,27 @@ function scorePercent(){
     (
       correct /
       questions.length
-    ) * 100
+    )
+    * 100
   );
 
 }
 
 
 /* =========================================================
-   TRACK COMPLETION
+   TRACKING
    ========================================================= */
 
-function sendCompletionRecord(percent){
+function sendCompletionRecord(
+  percent
+){
 
-  if(completionSubmitted){
+  if(
+    completionSubmitted
+  ){
+
     return;
+
   }
 
 
@@ -2820,25 +4394,35 @@ function sendCompletionRecord(percent){
 
 
   document
-    .getElementById('trackName')
+    .getElementById(
+      'trackName'
+    )
     .value =
-    learnerName.value.trim();
+    learnerName
+      .value
+      .trim();
 
 
   document
-    .getElementById('trackModule')
+    .getElementById(
+      'trackModule'
+    )
     .value =
     MODULE;
 
 
   document
-    .getElementById('trackScore')
+    .getElementById(
+      'trackScore'
+    )
     .value =
     percent + '%';
 
 
   document
-    .getElementById('trackStatus')
+    .getElementById(
+      'trackStatus'
+    )
     .value =
     'Completed';
 
@@ -2847,18 +4431,23 @@ function sendCompletionRecord(percent){
   TRACKING_URL;
 
 
-  document
-    .getElementById('recordStatus')
-    .innerHTML =
-    `
-      <b>Submitting completion record...</b><br>
-      Your signed-in Numerator account will be used for verification.
-    `;
+  const recordStatus =
+  document.getElementById(
+    'recordStatus'
+  );
+
+
+  recordStatus.innerHTML =
+  `
+    <b>Submitting completion record...</b><br>
+    Your signed-in Numerator account will be used for verification.
+  `;
 
 
   try{
 
     form.submit();
+
 
     completionSubmitted =
     true;
@@ -2867,13 +4456,11 @@ function sendCompletionRecord(percent){
     setTimeout(
       () => {
 
-        document
-          .getElementById('recordStatus')
-          .innerHTML =
-          `
-            <b>Completion submitted.</b><br>
-            Your result has been sent to the microlearning tracking system.
-          `;
+        recordStatus.innerHTML =
+        `
+          <b>Completion submitted.</b><br>
+          Your result has been sent to the microlearning tracking system.
+        `;
 
       },
       1200
@@ -2884,16 +4471,16 @@ function sendCompletionRecord(percent){
   catch(error){
 
     console.error(
+      'Tracking error:',
       error
     );
 
-    document
-      .getElementById('recordStatus')
-      .innerHTML =
-      `
-        <b>Completion achieved.</b><br>
-        The tracking request could not be submitted.
-      `;
+
+    recordStatus.innerHTML =
+    `
+      <b>Completion achieved.</b><br>
+      The tracking request could not be submitted.
+    `;
 
   }
 
@@ -2909,18 +4496,24 @@ function renderResult(){
   const percent =
   scorePercent();
 
+
   const passed =
-  percent >= PASS_PERCENT;
+  percent >=
+  PASS_PERCENT;
 
 
   document
-    .getElementById('resultNumber')
+    .getElementById(
+      'resultNumber'
+    )
     .textContent =
     percent + '%';
 
 
   document
-    .getElementById('resultRing')
+    .getElementById(
+      'resultRing'
+    )
     .style
     .setProperty(
       '--angle',
@@ -2931,7 +4524,9 @@ function renderResult(){
 
 
   document
-    .getElementById('correctCount')
+    .getElementById(
+      'correctCount'
+    )
     .textContent =
     `${correct} / ${questions.length} correct`;
 
@@ -2939,48 +4534,65 @@ function renderResult(){
   if(passed){
 
     document
-      .getElementById('resultTitle')
+      .getElementById(
+        'resultTitle'
+      )
       .textContent =
       'Completed';
 
 
     document
-      .getElementById('resultText')
+      .getElementById(
+        'resultText'
+      )
       .textContent =
       'You demonstrated a strong understanding of how RACI clarifies ownership, decision-making and stakeholder involvement.';
 
 
     document
-      .getElementById('certName')
+      .getElementById(
+        'certName'
+      )
       .textContent =
-      learnerName.value.trim();
+      learnerName
+        .value
+        .trim();
 
 
     document
-      .getElementById('certScore')
+      .getElementById(
+        'certScore'
+      )
       .textContent =
       `Score: ${percent}%`;
 
 
     document
-      .getElementById('certDate')
+      .getElementById(
+        'certDate'
+      )
       .textContent =
       `Completed on ${
-        new Date().toLocaleDateString(
-          'en-GB',
-          {
-            day:'2-digit',
-            month:'long',
-            year:'numeric'
-          }
-        )
+        new Date()
+          .toLocaleDateString(
+            'en-GB',
+            {
+              day:'2-digit',
+              month:'long',
+              year:'numeric'
+            }
+          )
       }`;
 
 
     document
-      .getElementById('certificate')
+      .getElementById(
+        'certificate'
+      )
       .classList
-      .add('show');
+      .add(
+        'show'
+      );
 
 
     sendCompletionRecord(
@@ -2992,29 +4604,39 @@ function renderResult(){
   else{
 
     document
-      .getElementById('resultTitle')
+      .getElementById(
+        'resultTitle'
+      )
       .textContent =
       'Not completed yet';
 
 
     document
-      .getElementById('resultText')
+      .getElementById(
+        'resultText'
+      )
       .textContent =
       `You scored ${percent}%. You need at least 85% to complete this microlearning.`;
 
 
     document
-      .getElementById('certificate')
+      .getElementById(
+        'certificate'
+      )
       .classList
-      .remove('show');
+      .remove(
+        'show'
+      );
 
 
     document
-      .getElementById('recordStatus')
+      .getElementById(
+        'recordStatus'
+      )
       .innerHTML =
       `
         <b>No completion record submitted.</b><br>
-        Review RACI and retry the knowledge check.
+        Review the RACI roles and retry the knowledge check.
       `;
 
   }
@@ -3027,7 +4649,9 @@ function renderResult(){
    ========================================================= */
 
 document
-.getElementById('retry')
+.getElementById(
+  'retry'
+)
 .addEventListener(
   'click',
   () => {
@@ -3035,8 +4659,10 @@ document
     quizIndex =
     0;
 
+
     correct =
     0;
+
 
     answers =
     Array(
@@ -3045,9 +4671,13 @@ document
 
 
     document
-      .getElementById('certificate')
+      .getElementById(
+        'certificate'
+      )
       .classList
-      .remove('show');
+      .remove(
+        'show'
+      );
 
 
     showScreen(3);
@@ -3061,16 +4691,21 @@ document
    ========================================================= */
 
 document
-.getElementById('printBtn')
+.getElementById(
+  'printBtn'
+)
 .addEventListener(
   'click',
-  () =>
-  window.print()
+  () => {
+
+    window.print();
+
+  }
 );
 
 
 /* =========================================================
-   INITIAL
+   INITIALIZE
    ========================================================= */
 
 showScreen(0);
