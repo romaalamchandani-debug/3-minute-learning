@@ -7,7 +7,6 @@
 <title>ADKAR — A Human Guide to Change</title>
 
 <style>
-
 :root{
   --ink:#173238;
   --muted:#61747a;
@@ -17,16 +16,12 @@
 
   --teal:#0b7b73;
   --deep:#075c56;
-  --soft:#e8f4ef;
 
   --awareness:#e9858a;
   --desire:#e5bf4e;
   --knowledge:#58b7b3;
   --ability:#7f95bd;
   --reinforcement:#a69ac8;
-
-  --ok:#177a56;
-  --bad:#a83b3b;
 }
 
 *{
@@ -57,141 +52,89 @@ input{
 .shell{
   width:min(1180px,calc(100% - 28px));
   margin:24px auto;
-
   background:#fff;
-
   border-radius:26px;
-
   overflow:hidden;
-
-  box-shadow:
-    0 20px 60px
-    rgba(20,54,62,.10);
-
+  box-shadow:0 20px 60px rgba(20,54,62,.10);
   position:relative;
 }
 
-
 .topline{
   height:8px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--teal),
-      #72b986
-    );
+  background:linear-gradient(
+    90deg,
+    var(--teal),
+    #72b986
+  );
 }
-
 
 .header{
   display:flex;
-
   align-items:center;
-
   gap:16px;
-
   padding:18px 28px;
-
-  border-bottom:
-    1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
-
 
 .brand{
   font-size:13px;
-
   font-weight:900;
-
   letter-spacing:.11em;
-
   color:var(--teal);
-
   white-space:nowrap;
 }
 
-
 .progress{
   flex:1;
-
   height:7px;
-
   border-radius:999px;
-
   background:#e8efed;
-
   overflow:hidden;
 }
 
-
 .progress > i{
   display:block;
-
   height:100%;
-
   width:0;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--teal),
-      #72b986
-    );
-
-  transition:
-    width .35s ease;
+  background:linear-gradient(
+    90deg,
+    var(--teal),
+    #72b986
+  );
+  transition:width .35s ease;
 }
-
 
 .count{
   min-width:90px;
-
   text-align:right;
-
   color:var(--muted);
-
   font-size:12px;
-
   font-weight:800;
 }
 
-
 main{
-  padding:
-    38px
-    46px
-    104px;
+  padding:38px 46px 104px;
 }
-
 
 .screen{
   display:none;
-
-  animation:
-    fadeIn .28s ease;
+  animation:fadeIn .28s ease;
 }
-
 
 .screen.active{
   display:block;
 }
 
-
 @keyframes fadeIn{
-
   from{
     opacity:0;
-
-    transform:
-      translateY(7px);
+    transform:translateY(7px);
   }
 
   to{
     opacity:1;
-
     transform:none;
   }
-
 }
 
 
@@ -201,53 +144,33 @@ main{
 
 .eyebrow{
   font-size:12px;
-
   font-weight:900;
-
   color:var(--teal);
-
   text-transform:uppercase;
-
   letter-spacing:.11em;
 }
 
-
 h1{
-  margin:
-    8px 0 16px;
-
-  font-size:
-    clamp(44px,6vw,72px);
-
+  margin:8px 0 16px;
+  font-size:clamp(44px,6vw,72px);
   line-height:1.02;
-
   letter-spacing:-.04em;
 }
 
-
 h2{
-  margin:
-    6px 0 12px;
-
-  font-size:
-    clamp(30px,4vw,44px);
-
+  margin:6px 0 12px;
+  font-size:clamp(30px,4vw,44px);
   line-height:1.08;
 }
 
-
 p{
   color:#42585f;
-
   font-size:18px;
-
   line-height:1.58;
 }
 
-
 .lead{
   font-size:21px;
-
   max-width:760px;
 }
 
@@ -258,111 +181,66 @@ p{
 
 .intro-grid{
   display:grid;
-
   grid-template-columns:
     minmax(0,1.05fr)
     minmax(320px,.95fr);
-
   gap:38px;
-
   align-items:center;
 }
 
-
 .pills{
   display:flex;
-
   gap:8px;
-
   flex-wrap:wrap;
-
-  margin:
-    18px 0 22px;
+  margin:18px 0 22px;
 }
 
-
 .pill{
-  padding:
-    8px 12px;
-
+  padding:8px 12px;
   border-radius:999px;
-
   background:#eef6f3;
-
   color:var(--deep);
-
   font-size:13px;
-
   font-weight:850;
 }
 
-
 .identity{
   margin-top:22px;
-
   padding:18px;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:17px;
-
   background:#fafcfb;
-
   max-width:640px;
 }
 
-
 .identity label{
   display:block;
-
   margin-bottom:8px;
-
   color:var(--deep);
-
   font-size:13px;
-
   font-weight:900;
-
   text-transform:uppercase;
-
   letter-spacing:.05em;
 }
 
-
 .identity input{
   width:100%;
-
-  padding:
-    13px 14px;
-
-  border:
-    1px solid #cad9d4;
-
+  padding:13px 14px;
+  border:1px solid #cad9d4;
   border-radius:12px;
-
   font-size:16px;
-
   outline:none;
 }
 
-
 .identity input:focus{
   border-color:var(--teal);
-
-  box-shadow:
-    0 0 0 3px
-    rgba(11,123,115,.12);
+  box-shadow:0 0 0 3px rgba(11,123,115,.12);
 }
-
 
 .identity small{
   display:block;
-
   margin-top:10px;
-
   color:var(--muted);
-
   line-height:1.45;
 }
 
@@ -373,486 +251,294 @@ p{
 
 .cover-art{
   min-height:410px;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:30px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #f8f5ed,
-      #e9f4ef
-    );
-
+  background:linear-gradient(
+    145deg,
+    #f8f5ed,
+    #e9f4ef
+  );
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   padding:28px;
 }
 
-
 .book-cover{
-  width:
-    min(360px,100%);
-
+  width:min(360px,100%);
   aspect-ratio:4/5;
-
   background:var(--paper);
-
-  border:
-    1px solid #d4ddd9;
-
-  border-radius:
-    8px 24px 24px 8px;
-
+  border:1px solid #d4ddd9;
+  border-radius:8px 24px 24px 8px;
   box-shadow:
     18px 18px 0 #dce8e3,
-    0 22px 45px
-    rgba(22,61,70,.13);
-
+    0 22px 45px rgba(22,61,70,.13);
   position:relative;
-
-  padding:
-    34px 30px;
+  padding:34px 30px;
 }
-
 
 .book-cover::before{
   content:"";
-
   position:absolute;
-
   left:18px;
-
   top:0;
-
   bottom:0;
-
   width:2px;
-
   background:#d9dfdc;
 }
 
-
 .cover-sequence{
   display:grid;
-
-  grid-template-columns:
-    repeat(5,1fr);
-
+  grid-template-columns:repeat(5,1fr);
   gap:6px;
-
-  margin:
-    28px 0;
+  margin:28px 0;
 }
-
 
 .cover-step{
   height:82px;
-
   border-radius:10px;
-
   display:grid;
-
   place-items:center;
-
   color:#fff;
-
   font-weight:950;
-
   font-size:26px;
 }
 
-
 .cover-title{
   font-size:38px;
-
   font-weight:950;
-
   line-height:1.02;
-
   letter-spacing:-.03em;
-
   margin-top:18px;
 }
 
-
 .cover-sub{
   color:var(--muted);
-
   line-height:1.5;
-
   margin-top:10px;
 }
 
 
 /* =========================================================
-   BOOK EXPERIENCE
+   BOOK
    ========================================================= */
 
 .book-layout{
   display:grid;
-
   grid-template-columns:
     minmax(0,1.35fr)
     minmax(330px,.65fr);
-
   gap:30px;
-
   align-items:center;
-
   margin-top:18px;
 }
 
-
 .book-wrap{
   position:relative;
-
   min-width:0;
-
   padding-left:72px;
 }
 
-
 .stage-tabs{
   position:absolute;
-
   left:0;
-
   top:30px;
-
   z-index:6;
-
   display:flex;
-
   flex-direction:column;
-
   gap:10px;
 }
 
-
 .stage-tab{
   width:82px;
-
   min-height:62px;
-
   border:0;
-
-  border-radius:
-    12px 0 0 12px;
-
+  border-radius:12px 0 0 12px;
   background:#d5dbdd;
-
   color:#5d696d;
-
   cursor:pointer;
-
   text-align:left;
-
-  padding:
-    10px 9px;
-
-  box-shadow:
-    0 5px 12px
-    rgba(0,0,0,.07);
-
+  padding:10px 9px;
+  box-shadow:0 5px 12px rgba(0,0,0,.07);
   transition:
     transform .2s ease,
     background .2s ease,
     color .2s ease;
 }
 
-
 .stage-tab strong{
   display:block;
-
   font-size:23px;
-
   line-height:1;
 }
 
-
 .stage-tab span{
   display:block;
-
   font-size:10px;
-
   font-weight:800;
-
   line-height:1.1;
-
   margin-top:5px;
 }
 
-
 .stage-tab.active{
   color:#fff;
-
-  transform:
-    translateX(-8px);
+  transform:translateX(-8px);
 }
-
 
 .stage-tab.done::after{
   content:" ✓";
-
   font-size:11px;
 }
 
-
 .book{
   position:relative;
-
   min-height:570px;
-
   perspective:1600px;
 }
 
-
 .book-page{
   position:relative;
-
   min-height:570px;
-
   background:var(--paper);
-
-  border:
-    1px solid #d8dfdc;
-
-  border-radius:
-    12px 28px 28px 12px;
-
-  box-shadow:
-    0 18px 46px
-    rgba(18,60,53,.12);
-
-  padding:
-    44px 48px
-    44px 58px;
-
+  border:1px solid #d8dfdc;
+  border-radius:12px 28px 28px 12px;
+  box-shadow:0 18px 46px rgba(18,60,53,.12);
+  padding:44px 48px 44px 58px;
   overflow:hidden;
-
-  transform-origin:
-    left center;
-
+  transform-origin:left center;
   backface-visibility:hidden;
 }
 
-
 .book-page::before{
   content:"";
-
   position:absolute;
-
   left:22px;
-
   top:0;
-
   bottom:0;
-
   width:2px;
-
   background:#e2e5e3;
 }
 
-
 .book-page::after{
   content:"";
-
   position:absolute;
-
   right:0;
-
   top:0;
-
   bottom:0;
-
   width:12px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(36,67,65,.06)
-    );
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(36,67,65,.06)
+  );
 }
-
 
 .book-page.turning{
-  animation:
-    pageTurn .62s ease;
+  animation:pageTurn .62s ease;
 }
 
-
 @keyframes pageTurn{
-
   0%{
-    transform:
-      rotateY(0deg);
-
+    transform:rotateY(0deg);
     opacity:1;
   }
 
   48%{
-    transform:
-      rotateY(-82deg);
-
+    transform:rotateY(-82deg);
     opacity:.45;
   }
 
   52%{
-    transform:
-      rotateY(-82deg);
-
+    transform:rotateY(-82deg);
     opacity:.45;
   }
 
   100%{
-    transform:
-      rotateY(0deg);
-
+    transform:rotateY(0deg);
     opacity:1;
   }
-
 }
-
 
 .page-kicker{
   display:flex;
-
   align-items:center;
-
   gap:12px;
 }
 
-
 .page-letter{
   width:52px;
-
   height:52px;
-
   border-radius:14px;
-
   color:#fff;
-
   display:grid;
-
   place-items:center;
-
   font-size:26px;
-
   font-weight:950;
 }
 
-
 .page-step{
   color:var(--muted);
-
   font-size:12px;
-
   font-weight:900;
-
   text-transform:uppercase;
-
   letter-spacing:.08em;
 }
 
-
 .page-question{
   font-size:15px;
-
   color:var(--teal);
-
   font-weight:900;
-
   text-transform:uppercase;
-
   letter-spacing:.05em;
-
   margin-top:4px;
 }
 
-
 .page-title{
   font-size:48px;
-
-  margin:
-    18px 0 10px;
-
+  margin:18px 0 10px;
   line-height:1;
 }
 
-
 .page-purpose{
-  margin:
-    0 0 22px;
-
+  margin:0 0 22px;
   font-size:19px;
 }
 
-
 .page-grid{
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns:1fr 1fr;
   gap:14px;
 }
 
-
 .page-box{
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:16px;
-
   padding:16px;
-
   background:#fff;
 }
-
 
 .page-box.full{
   grid-column:1/-1;
 }
 
-
 .page-box h4{
-  margin:
-    0 0 8px;
-
+  margin:0 0 8px;
   color:var(--deep);
-
   font-size:12px;
-
   text-transform:uppercase;
-
   letter-spacing:.06em;
 }
 
-
 .page-box ul{
   margin:0;
-
   padding-left:20px;
-
   color:#41565c;
-
   line-height:1.52;
 }
 
-
 .page-box p{
   margin:0;
-
   font-size:15px;
-
   line-height:1.52;
 }
 
@@ -862,105 +548,65 @@ p{
    ========================================================= */
 
 .stage-side .side-card{
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:22px;
-
   background:#fbfcfb;
-
   padding:22px;
 }
 
-
 .stage-side h3{
-  margin:
-    0 0 8px;
-
+  margin:0 0 8px;
   font-size:23px;
 }
 
-
 .stage-side p{
   margin:0;
-
   font-size:15px;
 }
 
-
 .side-sequence{
   display:flex;
-
   gap:7px;
-
   flex-wrap:wrap;
-
   margin-top:18px;
 }
 
-
 .seq{
   min-width:46px;
-
-  padding:
-    9px 10px;
-
+  padding:9px 10px;
   border-radius:10px;
-
   background:#e3e8e8;
-
   color:#657175;
-
   text-align:center;
-
   font-weight:900;
-
   font-size:13px;
 }
-
 
 .seq.active{
   color:#fff;
 }
 
-
 .stage-actions{
   display:flex;
-
   gap:10px;
-
   flex-wrap:wrap;
-
   margin-top:18px;
 }
 
-
 .stage-actions button{
   min-height:44px;
-
   border-radius:12px;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   background:#fff;
-
   color:var(--ink);
-
-  padding:
-    11px 16px;
-
+  padding:11px 16px;
   font-weight:850;
-
   cursor:pointer;
 }
 
-
 .stage-actions .primary{
   background:var(--teal);
-
   border-color:var(--teal);
-
   color:#fff;
 }
 
@@ -971,49 +617,30 @@ p{
 
 .distinction{
   max-width:900px;
-
-  margin:
-    0 auto;
-
-  border:
-    1px solid var(--line);
-
+  margin:0 auto;
+  border:1px solid var(--line);
   border-radius:28px;
-
   padding:34px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #fbfcfb,
-      #eff6f2
-    );
+  background:linear-gradient(
+    145deg,
+    #fbfcfb,
+    #eff6f2
+  );
 }
-
 
 .distinction-grid{
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns:1fr 1fr;
   gap:16px;
-
   margin-top:22px;
 }
 
-
 .dist-card{
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:18px;
-
   padding:20px;
-
   background:#fff;
 }
-
 
 .dist-card strong{
   color:var(--teal);
@@ -1026,189 +653,117 @@ p{
 
 .quiz-wrap{
   max-width:900px;
-
-  margin:
-    0 auto;
+  margin:0 auto;
 }
-
 
 .quiz-top{
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
-
   gap:16px;
-
   margin-bottom:18px;
 }
 
-
 .quiz-score{
-  padding:
-    8px 11px;
-
+  padding:8px 11px;
   border-radius:999px;
-
   background:#eef6f3;
-
   color:var(--deep);
-
   font-size:13px;
-
   font-weight:900;
 }
 
-
 .scenario{
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:22px;
-
   padding:22px;
-
   background:#fbfcfb;
-
-  margin:
-    18px 0;
+  margin:18px 0;
 }
-
 
 .scenario p{
   margin:0;
-
   font-size:20px;
-
   color:var(--ink);
 }
-
 
 .options{
   margin-top:18px;
 }
 
-
 .option{
   width:100%;
-
   text-align:left;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   background:#fff;
-
-  padding:
-    14px 16px;
-
+  padding:14px 16px;
   border-radius:14px;
-
-  margin:
-    9px 0;
-
+  margin:9px 0;
   cursor:pointer;
-
   color:var(--ink);
 }
-
 
 .option:hover:not(:disabled){
   border-color:var(--teal);
 }
 
-
 .option.correct{
   background:#edf8f1;
-
   border-color:#65ad81;
 }
 
-
 .option.wrong{
   background:#fff1ef;
-
   border-color:#d59280;
 }
-
 
 .option:disabled{
   cursor:default;
 }
 
-
 .feedback{
   display:none;
-
   margin-top:16px;
-
-  padding:
-    14px 16px;
-
+  padding:14px 16px;
   border-radius:14px;
-
   line-height:1.5;
 }
-
 
 .feedback.show{
   display:block;
 }
 
-
 .feedback.ok{
   background:#eef8f2;
-
   color:#2b624a;
-
-  border:
-    1px solid #cee6d8;
+  border:1px solid #cee6d8;
 }
-
 
 .feedback.bad{
   background:#fff3f1;
-
   color:#7c3e36;
-
-  border:
-    1px solid #ecd1ca;
+  border:1px solid #ecd1ca;
 }
-
 
 .quiz-next{
   display:flex;
-
   justify-content:flex-end;
-
   margin-top:18px;
 }
 
-
 .quiz-next button{
   min-height:44px;
-
   border:0;
-
   border-radius:12px;
-
-  padding:
-    12px 18px;
-
+  padding:12px 18px;
   background:var(--teal);
-
   color:#fff;
-
   font-weight:900;
-
   cursor:pointer;
 }
 
-
 .quiz-next button:disabled{
   opacity:.4;
-
   cursor:not-allowed;
 }
 
@@ -1219,106 +774,82 @@ p{
 
 .result-card{
   max-width:760px;
-
-  margin:
-    0 auto;
-
-  border:
-    1px solid var(--line);
-
+  margin:0 auto;
+  border:1px solid var(--line);
   border-radius:28px;
-
   padding:34px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #fbfcfb,
-      #f0f6f3
-    );
-
+  background:linear-gradient(
+    145deg,
+    #fbfcfb,
+    #f0f6f3
+  );
   text-align:center;
 }
 
-
 .result-ring{
   width:154px;
-
   height:154px;
-
-  margin:
-    8px auto 18px;
-
+  margin:8px auto 18px;
   border-radius:50%;
-
   display:grid;
-
   place-items:center;
-
-  background:
-    conic-gradient(
-      var(--teal)
-      var(--score-angle),
-      #e4ece9 0
-    );
-
+  background:conic-gradient(
+    var(--teal)
+    var(--score-angle),
+    #e4ece9 0
+  );
   position:relative;
 }
-
 
 .result-ring::after{
   content:"";
-
   position:absolute;
-
   inset:14px;
-
   border-radius:50%;
-
   background:#fff;
 }
-
 
 .result-number{
   position:relative;
-
   z-index:1;
-
   font-size:38px;
-
   font-weight:950;
 }
 
-
 .result-meta{
   display:flex;
-
   justify-content:center;
-
   gap:10px;
-
   flex-wrap:wrap;
-
   margin-top:18px;
 }
 
-
 .meta-chip{
-  padding:
-    9px 12px;
-
-  border:
-    1px solid var(--line);
-
+  padding:9px 12px;
+  border:1px solid var(--line);
   border-radius:12px;
-
   background:#fff;
-
   color:#526369;
-
   font-size:13px;
-
   font-weight:850;
+}
+
+
+/* =========================================================
+   TRACKING STATUS
+   ========================================================= */
+
+.statusbox{
+  margin:22px auto 0;
+  padding:14px 16px;
+  border:1px solid #cfe0da;
+  border-radius:14px;
+  background:#f5faf8;
+  color:#46615a;
+  font-size:14px;
+  line-height:1.5;
+  max-width:620px;
+  min-height:48px;
 }
 
 
@@ -1328,208 +859,128 @@ p{
 
 .certificate{
   display:none;
-
   margin-top:26px;
-
-  border:
-    2px solid var(--teal);
-
+  border:2px solid var(--teal);
   border-radius:24px;
-
   padding:34px;
-
   background:#fff;
-
   position:relative;
-
   overflow:hidden;
 }
-
 
 .certificate.show{
   display:block;
 }
 
-
 .certificate::before{
   content:"";
-
   position:absolute;
-
   left:0;
-
   right:0;
-
   top:0;
-
   height:8px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--teal),
-      #72b986
-    );
+  background:linear-gradient(
+    90deg,
+    var(--teal),
+    #72b986
+  );
 }
-
 
 .cert-small{
   margin-top:6px;
-
   color:var(--teal);
-
   font-size:12px;
-
   font-weight:900;
-
   letter-spacing:.11em;
-
   text-transform:uppercase;
 }
 
-
 .cert-name{
   font-size:32px;
-
   font-weight:950;
-
-  margin:
-    12px 0;
+  margin:12px 0;
 }
-
 
 .cert-module{
   font-size:26px;
-
   color:var(--deep);
-
   font-weight:900;
-
-  margin:
-    8px 0 18px;
+  margin:8px 0 18px;
 }
-
 
 .cert-copy{
   color:#526369;
-
   line-height:1.55;
-
   font-size:16px;
 }
 
-
 .cert-footer{
   display:flex;
-
   justify-content:center;
-
   gap:10px;
-
   flex-wrap:wrap;
-
   margin-top:18px;
 }
-
 
 .cert-print,
 .retry{
   margin-top:18px;
-
   border:0;
-
   border-radius:12px;
-
-  padding:
-    12px 18px;
-
+  padding:12px 18px;
   background:var(--teal);
-
   color:#fff;
-
   font-weight:900;
-
   cursor:pointer;
 }
 
 
 /* =========================================================
-   BOTTOM NAVIGATION
+   BOTTOM NAV
    ========================================================= */
 
 .bottom-nav{
   position:absolute;
-
   left:0;
-
   right:0;
-
   bottom:0;
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   gap:12px;
-
-  padding:
-    15px 28px;
-
-  border-top:
-    1px solid var(--line);
-
-  background:
-    rgba(255,255,255,.95);
-
-  backdrop-filter:
-    blur(8px);
+  padding:15px 28px;
+  border-top:1px solid var(--line);
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);
 }
-
 
 .nav-btn{
   min-height:44px;
-
   border:0;
-
   border-radius:12px;
-
-  padding:
-    11px 17px;
-
+  padding:11px 17px;
   font-weight:900;
-
   cursor:pointer;
 }
 
-
 .nav-back{
   background:#edf1f1;
-
   color:#536266;
 }
 
-
 .nav-next{
   background:var(--teal);
-
   color:#fff;
 }
 
-
 .nav-btn:disabled{
   opacity:.4;
-
   cursor:not-allowed;
 }
 
-
 .time{
   color:var(--muted);
-
   font-size:13px;
-
   text-align:center;
 }
 
@@ -1541,8 +992,7 @@ p{
 @media(max-width:900px){
 
   main{
-    padding:
-      34px 28px 104px;
+    padding:34px 28px 104px;
   }
 
   .intro-grid,
@@ -1557,38 +1007,27 @@ p{
 
   .book-wrap{
     padding-left:0;
-
     padding-top:72px;
   }
 
   .stage-tabs{
     top:0;
-
     left:0;
-
     right:0;
-
     flex-direction:row;
-
     justify-content:center;
-
     flex-wrap:wrap;
   }
 
   .stage-tab{
     width:auto;
-
     min-width:72px;
-
-    border-radius:
-      10px 10px 0 0;
-
+    border-radius:10px 10px 0 0;
     text-align:center;
   }
 
   .stage-tab.active{
-    transform:
-      translateY(-6px);
+    transform:translateY(-6px);
   }
 
 }
@@ -1598,17 +1037,13 @@ p{
 
   .shell{
     width:100%;
-
     margin:0;
-
     border-radius:0;
-
     min-height:100vh;
   }
 
   .header{
-    padding:
-      15px 18px;
+    padding:15px 18px;
   }
 
   .brand{
@@ -1620,14 +1055,11 @@ p{
   }
 
   main{
-    padding:
-      28px 18px 104px;
+    padding:28px 18px 104px;
   }
 
   .book-page{
-    padding:
-      34px 22px
-      34px 34px;
+    padding:34px 22px 34px 34px;
   }
 
   .page-grid{
@@ -1647,22 +1079,17 @@ p{
   }
 
   .result-card{
-    padding:
-      26px 18px;
+    padding:26px 18px;
   }
 
 }
 
 
-@media(
-  prefers-reduced-motion:reduce
-){
+@media(prefers-reduced-motion:reduce){
 
   *{
     animation:none!important;
-
     transition:none!important;
-
     scroll-behavior:auto!important;
   }
 
@@ -1682,19 +1109,12 @@ p{
 
   #certificate{
     display:block!important;
-
     position:absolute;
-
     left:0;
-
     top:0;
-
     width:100%;
-
     max-width:none;
-
     margin:0;
-
     border-radius:0;
   }
 
@@ -1806,9 +1226,9 @@ p{
             >
 
             <small>
-              Your name will be used on your completion
-              certificate. Verified completion tracking
-              will be connected separately.
+              Your name will appear on your certificate.
+              Your signed-in Numerator account will be used
+              by the tracking system for the completion record.
             </small>
 
           </div>
@@ -1838,50 +1258,35 @@ p{
 
               <div
                 class="cover-step"
-                style="
-                  background:
-                  var(--awareness)
-                "
+                style="background:var(--awareness)"
               >
                 A
               </div>
 
               <div
                 class="cover-step"
-                style="
-                  background:
-                  var(--desire)
-                "
+                style="background:var(--desire)"
               >
                 D
               </div>
 
               <div
                 class="cover-step"
-                style="
-                  background:
-                  var(--knowledge)
-                "
+                style="background:var(--knowledge)"
               >
                 K
               </div>
 
               <div
                 class="cover-step"
-                style="
-                  background:
-                  var(--ability)
-                "
+                style="background:var(--ability)"
               >
                 A
               </div>
 
               <div
                 class="cover-step"
-                style="
-                  background:
-                  var(--reinforcement)
-                "
+                style="background:var(--reinforcement)"
               >
                 R
               </div>
@@ -1902,6 +1307,7 @@ p{
       </div>
 
     </section>
+
 
 
     <!-- =====================================================
@@ -1947,9 +1353,7 @@ p{
               id="bookPage"
             >
 
-
               <div class="page-kicker">
-
 
                 <div
                   class="page-letter"
@@ -1957,7 +1361,6 @@ p{
                 >
                   A
                 </div>
-
 
                 <div>
 
@@ -1977,7 +1380,6 @@ p{
 
                 </div>
 
-
               </div>
 
 
@@ -1996,7 +1398,6 @@ p{
 
 
               <div class="page-grid">
-
 
                 <div class="page-box">
 
@@ -2030,14 +1431,11 @@ p{
 
                 </div>
 
-
               </div>
-
 
             </article>
 
           </div>
-
 
         </div>
 
@@ -2046,16 +1444,13 @@ p{
 
           <div class="side-card">
 
-
             <div class="eyebrow">
               Where you are
             </div>
 
-
             <h3 id="sideTitle">
               Awareness
             </h3>
-
 
             <p id="sideCopy"></p>
 
@@ -2085,15 +1480,14 @@ p{
 
             </div>
 
-
           </div>
 
         </aside>
 
-
       </div>
 
     </section>
+
 
 
     <!-- =====================================================
@@ -2107,11 +1501,9 @@ p{
 
       <div class="distinction">
 
-
         <div class="eyebrow">
           A useful distinction
         </div>
-
 
         <h2>
           Training is only part of the change.
@@ -2131,7 +1523,6 @@ p{
 
 
         <div class="distinction-grid">
-
 
           <div class="dist-card">
 
@@ -2161,13 +1552,12 @@ p{
 
           </div>
 
-
         </div>
-
 
       </div>
 
     </section>
+
 
 
     <!-- =====================================================
@@ -2183,7 +1573,6 @@ p{
 
 
         <div class="quiz-top">
-
 
           <div>
 
@@ -2204,7 +1593,6 @@ p{
           >
             Score: 0 / 0
           </div>
-
 
         </div>
 
@@ -2255,6 +1643,7 @@ p{
     </section>
 
 
+
     <!-- =====================================================
          RESULT
          ===================================================== -->
@@ -2275,9 +1664,7 @@ p{
         <div
           class="result-ring"
           id="resultRing"
-          style="
-            --score-angle:0deg
-          "
+          style="--score-angle:0deg"
         >
 
           <div
@@ -2318,6 +1705,14 @@ p{
         </div>
 
 
+        <div
+          id="recordStatus"
+          class="statusbox"
+        >
+          Completion tracking status will appear here.
+        </div>
+
+
         <!-- CERTIFICATE -->
 
         <div
@@ -2342,8 +1737,7 @@ p{
 
 
           <div class="cert-copy">
-            has successfully completed
-            the microlearning
+            has successfully completed the microlearning
           </div>
 
 
@@ -2385,7 +1779,6 @@ p{
             Print / Save Certificate
           </button>
 
-
         </div>
 
 
@@ -2406,9 +1799,10 @@ p{
   </main>
 
 
-  <!-- =======================================================
-       BOTTOM NAV
-       ======================================================= -->
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
 
   <div
     class="bottom-nav"
@@ -2417,10 +1811,7 @@ p{
 
     <button
       type="button"
-      class="
-        nav-btn
-        nav-back
-      "
+      class="nav-btn nav-back"
       id="backBtn"
     >
       ← Back
@@ -2437,15 +1828,11 @@ p{
 
     <button
       type="button"
-      class="
-        nav-btn
-        nav-next
-      "
+      class="nav-btn nav-next"
       id="nextBtn"
     >
       Start →
     </button>
-
 
   </div>
 
@@ -2453,11 +1840,75 @@ p{
 </div>
 
 
+
+<!-- =======================================================
+     HIDDEN APPS SCRIPT TRACKING FORM
+     ======================================================= -->
+
+<iframe
+  name="trackingFrame"
+  id="trackingFrame"
+  style="display:none"
+  title="Tracking"
+></iframe>
+
+
+<form
+  id="trackingForm"
+  method="POST"
+  target="trackingFrame"
+  style="display:none"
+>
+
+  <input
+    type="hidden"
+    name="name"
+    id="trackName"
+  >
+
+  <input
+    type="hidden"
+    name="module"
+    id="trackModule"
+  >
+
+  <input
+    type="hidden"
+    name="score"
+    id="trackScore"
+  >
+
+  <input
+    type="hidden"
+    name="status"
+    id="trackStatus"
+  >
+
+</form>
+
+
+
 <script>
 
 
 /* =========================================================
-   STAGE DATA
+   TRACKING CONFIGURATION
+   ========================================================= */
+
+const TRACKING_URL =
+'https://script.google.com/a/macros/numerator.com/s/AKfycbw9a4dIXIKH9pRP8uJDBmgBWUtnSxsMa-wG9uciDxuDQ5ky5la_83E7V4oz0xeadcLjbw/exec';
+
+
+const MODULE =
+'ADKAR';
+
+
+const PASS_PERCENT =
+85;
+
+
+/* =========================================================
+   ADKAR STAGE DATA
    ========================================================= */
 
 const stageData = [
@@ -2763,7 +2214,7 @@ const quizData = [
 
 
 /* =========================================================
-   MAIN ELEMENTS
+   ELEMENTS
    ========================================================= */
 
 const screens = [
@@ -2792,69 +2243,89 @@ const screens = [
 
 
 const progressBar =
-  document.getElementById(
-    'progressBar'
-  );
+document.getElementById(
+  'progressBar'
+);
 
 
 const headerCount =
-  document.getElementById(
-    'headerCount'
-  );
+document.getElementById(
+  'headerCount'
+);
 
 
 const backBtn =
-  document.getElementById(
-    'backBtn'
-  );
+document.getElementById(
+  'backBtn'
+);
 
 
 const nextBtn =
-  document.getElementById(
-    'nextBtn'
-  );
+document.getElementById(
+  'nextBtn'
+);
 
 
 const bottomNav =
-  document.getElementById(
-    'bottomNav'
-  );
+document.getElementById(
+  'bottomNav'
+);
 
 
 const timeText =
-  document.getElementById(
-    'timeText'
-  );
+document.getElementById(
+  'timeText'
+);
 
 
-let screenIndex = 0;
+const learnerName =
+document.getElementById(
+  'learnerName'
+);
 
-let stageIndex = 0;
+
+let screenIndex =
+0;
+
+
+let stageIndex =
+0;
+
 
 let visitedStages =
-  new Set([0]);
+new Set([0]);
 
 
-let quizIndex = 0;
+let quizIndex =
+0;
 
-let correctCount = 0;
+
+let correctCount =
+0;
+
 
 let quizAnswers =
-  Array(
-    quizData.length
-  ).fill(null);
+Array(
+  quizData.length
+).fill(null);
+
+
+/*
+Prevents the result screen from submitting
+the same completion multiple times in one session.
+*/
+
+let completionSubmitted =
+false;
 
 
 /* =========================================================
-   IDENTITY
+   NAME VALIDATION
    ========================================================= */
 
 function learnerNameValid(){
 
-  return document
-    .getElementById(
-      'learnerName'
-    )
+  return learnerName
     .value
     .trim()
     .length > 1;
@@ -2863,19 +2334,19 @@ function learnerNameValid(){
 
 
 /* =========================================================
-   MAIN SCREEN NAVIGATION
+   SCREEN NAVIGATION
    ========================================================= */
 
 function showScreen(index){
 
   screenIndex =
-    Math.max(
-      0,
-      Math.min(
-        index,
-        screens.length - 1
-      )
-    );
+  Math.max(
+    0,
+    Math.min(
+      index,
+      screens.length - 1
+    )
+  );
 
 
   screens.forEach(
@@ -2893,19 +2364,19 @@ function showScreen(index){
 
 
   const progressValues =
-    [
-      8,
-      40,
-      62,
-      78,
-      100
-    ];
+  [
+    8,
+    40,
+    62,
+    78,
+    100
+  ];
 
 
   progressBar.style.width =
-    progressValues[
-      screenIndex
-    ] + '%';
+  progressValues[
+    screenIndex
+  ] + '%';
 
 
   if(
@@ -2913,25 +2384,25 @@ function showScreen(index){
   ){
 
     headerCount.textContent =
-      'Start';
+    'Start';
 
     backBtn.style.visibility =
-      'hidden';
+    'hidden';
 
     nextBtn.style.display =
-      '';
+    '';
 
     nextBtn.textContent =
-      'Start →';
+    'Start →';
 
     nextBtn.disabled =
-      !learnerNameValid();
+    !learnerNameValid();
 
     timeText.textContent =
-      'Estimated time: 5 min';
+    'Estimated time: 5 min';
 
     bottomNav.style.display =
-      'flex';
+    'flex';
 
   }
 
@@ -2941,19 +2412,19 @@ function showScreen(index){
   ){
 
     headerCount.textContent =
-      'ADKAR stages';
+    'ADKAR stages';
 
     backBtn.style.visibility =
-      'visible';
+    'visible';
 
     nextBtn.style.display =
-      'none';
+    'none';
 
     timeText.textContent =
-      'Turn the page through all five stages';
+    'Turn the page through all five stages';
 
     bottomNav.style.display =
-      'flex';
+    'flex';
 
     renderStage(
       false
@@ -2967,25 +2438,25 @@ function showScreen(index){
   ){
 
     headerCount.textContent =
-      'Training vs change';
+    'Training vs change';
 
     backBtn.style.visibility =
-      'visible';
+    'visible';
 
     nextBtn.style.display =
-      '';
+    '';
 
     nextBtn.textContent =
-      'Knowledge check →';
+    'Knowledge check →';
 
     nextBtn.disabled =
-      false;
+    false;
 
     timeText.textContent =
-      'One useful distinction';
+    'One useful distinction';
 
     bottomNav.style.display =
-      'flex';
+    'flex';
 
   }
 
@@ -2995,19 +2466,19 @@ function showScreen(index){
   ){
 
     headerCount.textContent =
-      `Question ${quizIndex + 1} / ${quizData.length}`;
+    `Question ${quizIndex + 1} / ${quizData.length}`;
 
     backBtn.style.visibility =
-      'visible';
+    'visible';
 
     nextBtn.style.display =
-      'none';
+    'none';
 
     timeText.textContent =
-      'Knowledge check';
+    'Knowledge check';
 
     bottomNav.style.display =
-      'flex';
+    'flex';
 
     renderQuestion();
 
@@ -3019,10 +2490,10 @@ function showScreen(index){
   ){
 
     headerCount.textContent =
-      'Result';
+    'Result';
 
     bottomNav.style.display =
-      'none';
+    'none';
 
     renderResult();
 
@@ -3037,84 +2508,85 @@ function showScreen(index){
 }
 
 
-document
-  .getElementById(
-    'learnerName'
-  )
-  .addEventListener(
-    'input',
-    () => {
+/* =========================================================
+   INTRO EVENTS
+   ========================================================= */
 
-      if(
-        screenIndex === 0
-      ){
+learnerName
+.addEventListener(
+  'input',
+  () => {
 
-        nextBtn.disabled =
-          !learnerNameValid();
+    if(
+      screenIndex === 0
+    ){
 
-      }
+      nextBtn.disabled =
+      !learnerNameValid();
 
     }
-  );
+
+  }
+);
 
 
 nextBtn
-  .addEventListener(
-    'click',
-    () => {
+.addEventListener(
+  'click',
+  () => {
 
-      if(
-        screenIndex === 0 &&
-        learnerNameValid()
-      ){
+    if(
+      screenIndex === 0 &&
+      learnerNameValid()
+    ){
 
-        showScreen(1);
-
-      }
-
-      else if(
-        screenIndex === 2
-      ){
-
-        showScreen(3);
-
-      }
+      showScreen(1);
 
     }
-  );
+
+    else if(
+      screenIndex === 2
+    ){
+
+      showScreen(3);
+
+    }
+
+  }
+);
 
 
 backBtn
-  .addEventListener(
-    'click',
-    () => {
+.addEventListener(
+  'click',
+  () => {
 
-      if(
-        screenIndex === 1
-      ){
+    if(
+      screenIndex === 1
+    ){
 
-        showScreen(0);
-
-      }
-
-      else if(
-        screenIndex === 2
-      ){
-
-        showScreen(1);
-
-      }
-
-      else if(
-        screenIndex === 3
-      ){
-
-        showScreen(2);
-
-      }
+      showScreen(0);
 
     }
-  );
+
+    else if(
+      screenIndex === 2
+    ){
+
+      showScreen(1);
+
+    }
+
+    else if(
+      screenIndex === 3
+    ){
+
+      showScreen(2);
+
+    }
+
+  }
+);
 
 
 /* =========================================================
@@ -3122,24 +2594,25 @@ backBtn
    ========================================================= */
 
 const tabsWrap =
-  document.getElementById(
-    'stageTabs'
-  );
+document.getElementById(
+  'stageTabs'
+);
 
 
 const sideSequence =
-  document.getElementById(
-    'sideSequence'
-  );
+document.getElementById(
+  'sideSequence'
+);
 
 
 function buildStageTabs(){
 
   tabsWrap.innerHTML =
-    '';
+  '';
+
 
   sideSequence.innerHTML =
-    '';
+  '';
 
 
   stageData.forEach(
@@ -3147,21 +2620,21 @@ function buildStageTabs(){
 
 
       const tab =
-        document.createElement(
-          'button'
-        );
+      document.createElement(
+        'button'
+      );
 
 
       tab.type =
-        'button';
+      'button';
 
 
       tab.className =
-        'stage-tab';
+      'stage-tab';
 
 
       tab.innerHTML =
-        `
+      `
         <strong>
           ${stage.letter}
         </strong>
@@ -3169,7 +2642,7 @@ function buildStageTabs(){
         <span>
           ${stage.name}
         </span>
-        `;
+      `;
 
 
       if(
@@ -3184,7 +2657,7 @@ function buildStageTabs(){
 
 
         tab.style.background =
-          stage.color;
+        stage.color;
 
       }
 
@@ -3219,17 +2692,17 @@ function buildStageTabs(){
 
 
       const seq =
-        document.createElement(
-          'div'
-        );
+      document.createElement(
+        'div'
+      );
 
 
       seq.className =
-        'seq';
+      'seq';
 
 
       seq.textContent =
-        stage.letter;
+      stage.letter;
 
 
       if(
@@ -3244,7 +2717,7 @@ function buildStageTabs(){
 
 
         seq.style.background =
-          stage.color;
+        stage.color;
 
       }
 
@@ -3253,7 +2726,6 @@ function buildStageTabs(){
         .appendChild(
           seq
         );
-
 
     }
   );
@@ -3270,152 +2742,152 @@ function renderStage(
 ){
 
   const stage =
-    stageData[
-      stageIndex
-    ];
+  stageData[
+    stageIndex
+  ];
 
 
   const page =
-    document.getElementById(
-      'bookPage'
-    );
+  document.getElementById(
+    'bookPage'
+  );
 
 
   const update =
-    () => {
+  () => {
 
 
-      document
-        .getElementById(
-          'pageLetter'
+    document
+      .getElementById(
+        'pageLetter'
+      )
+      .textContent =
+      stage.letter;
+
+
+    document
+      .getElementById(
+        'pageLetter'
+      )
+      .style
+      .background =
+      stage.color;
+
+
+    document
+      .getElementById(
+        'pageStep'
+      )
+      .textContent =
+      `Stage ${stageIndex + 1} of 5`;
+
+
+    document
+      .getElementById(
+        'pageQuestion'
+      )
+      .textContent =
+      stage.question;
+
+
+    document
+      .getElementById(
+        'pageTitle'
+      )
+      .textContent =
+      stage.name;
+
+
+    document
+      .getElementById(
+        'pagePurpose'
+      )
+      .textContent =
+      stage.outcome;
+
+
+    document
+      .getElementById(
+        'pageOutcome'
+      )
+      .textContent =
+      stage.outcome;
+
+
+    document
+      .getElementById(
+        'pageActions'
+      )
+      .innerHTML =
+      stage.actions
+        .map(
+          item =>
+          `<li>${item}</li>`
         )
-        .textContent =
-          stage.letter;
+        .join('');
 
 
-      document
-        .getElementById(
-          'pageLetter'
-        )
-        .style
-        .background =
-          stage.color;
+    document
+      .getElementById(
+        'pageExample'
+      )
+      .textContent =
+      stage.example;
 
 
-      document
-        .getElementById(
-          'pageStep'
-        )
-        .textContent =
-          `Stage ${stageIndex + 1} of 5`;
+    document
+      .getElementById(
+        'sideTitle'
+      )
+      .textContent =
+      stage.name;
 
 
-      document
-        .getElementById(
-          'pageQuestion'
-        )
-        .textContent =
-          stage.question;
+    document
+      .getElementById(
+        'sideCopy'
+      )
+      .textContent =
+      `${stage.question} This page focuses on what the individual needs at this stage of the change.`;
 
 
-      document
-        .getElementById(
-          'pageTitle'
-        )
-        .textContent =
-          stage.name;
+    const prev =
+    document.getElementById(
+      'prevStageBtn'
+    );
 
 
-      document
-        .getElementById(
-          'pagePurpose'
-        )
-        .textContent =
-          stage.outcome;
+    const next =
+    document.getElementById(
+      'nextStageBtn'
+    );
 
 
-      document
-        .getElementById(
-          'pageOutcome'
-        )
-        .textContent =
-          stage.outcome;
+    prev.disabled =
+    stageIndex === 0;
 
 
-      document
-        .getElementById(
-          'pageActions'
-        )
-        .innerHTML =
-          stage.actions
-            .map(
-              item =>
-                `<li>${item}</li>`
-            )
-            .join('');
+    if(
+      stageIndex <
+      stageData.length - 1
+    ){
+
+      next.textContent =
+      `Next: ${stageData[stageIndex + 1].name} →`;
+
+    }
+
+    else{
+
+      next.textContent =
+      'Continue: Training vs change →';
+
+    }
 
 
-      document
-        .getElementById(
-          'pageExample'
-        )
-        .textContent =
-          stage.example;
+    buildStageTabs();
 
-
-      document
-        .getElementById(
-          'sideTitle'
-        )
-        .textContent =
-          stage.name;
-
-
-      document
-        .getElementById(
-          'sideCopy'
-        )
-        .textContent =
-          `${stage.question} This page focuses on what the individual needs at this stage of the change.`;
-
-
-      const prev =
-        document.getElementById(
-          'prevStageBtn'
-        );
-
-
-      const next =
-        document.getElementById(
-          'nextStageBtn'
-        );
-
-
-      prev.disabled =
-        stageIndex === 0;
-
-
-      if(
-        stageIndex <
-        stageData.length - 1
-      ){
-
-        next.textContent =
-          `Next: ${stageData[stageIndex + 1].name} →`;
-
-      }
-
-      else{
-
-        next.textContent =
-          'Continue: Training vs change →';
-
-      }
-
-
-      buildStageTabs();
-
-    };
+  };
 
 
   if(
@@ -3487,7 +2959,7 @@ function changeStage(
 
 
   stageIndex =
-    index;
+  index;
 
 
   visitedStages.add(
@@ -3503,54 +2975,54 @@ function changeStage(
 
 
 document
-  .getElementById(
-    'prevStageBtn'
-  )
-  .addEventListener(
-    'click',
-    () => {
+.getElementById(
+  'prevStageBtn'
+)
+.addEventListener(
+  'click',
+  () => {
 
-      if(
-        stageIndex > 0
-      ){
+    if(
+      stageIndex > 0
+    ){
 
-        changeStage(
-          stageIndex - 1
-        );
-
-      }
+      changeStage(
+        stageIndex - 1
+      );
 
     }
-  );
+
+  }
+);
 
 
 document
-  .getElementById(
-    'nextStageBtn'
-  )
-  .addEventListener(
-    'click',
-    () => {
+.getElementById(
+  'nextStageBtn'
+)
+.addEventListener(
+  'click',
+  () => {
 
-      if(
-        stageIndex <
-        stageData.length - 1
-      ){
+    if(
+      stageIndex <
+      stageData.length - 1
+    ){
 
-        changeStage(
-          stageIndex + 1
-        );
-
-      }
-
-      else{
-
-        showScreen(2);
-
-      }
+      changeStage(
+        stageIndex + 1
+      );
 
     }
-  );
+
+    else{
+
+      showScreen(2);
+
+    }
+
+  }
+);
 
 
 /* =========================================================
@@ -3572,9 +3044,9 @@ function renderQuestion(){
 
 
   const question =
-    quizData[
-      quizIndex
-    ];
+  quizData[
+    quizIndex
+  ];
 
 
   document
@@ -3582,7 +3054,7 @@ function renderQuestion(){
       'quizScore'
     )
     .textContent =
-      `Score: ${correctCount} / ${quizIndex}`;
+    `Score: ${correctCount} / ${quizIndex}`;
 
 
   document
@@ -3590,95 +3062,94 @@ function renderQuestion(){
       'scenarioText'
     )
     .textContent =
-      question.text;
+    question.text;
 
 
   const options =
-    document.getElementById(
-      'options'
-    );
+  document.getElementById(
+    'options'
+  );
 
 
   const feedback =
-    document.getElementById(
-      'feedback'
-    );
+  document.getElementById(
+    'feedback'
+  );
 
 
   const next =
-    document.getElementById(
-      'quizNextBtn'
-    );
+  document.getElementById(
+    'quizNextBtn'
+  );
 
 
   options.innerHTML =
-    '';
+  '';
 
 
   feedback.className =
-    'feedback';
+  'feedback';
 
 
   feedback.innerHTML =
-    '';
+  '';
 
 
   next.disabled =
-    true;
+  true;
 
 
   next.textContent =
-    quizIndex ===
-    quizData.length - 1
-      ?
-      'See my result →'
-      :
-      'Next question →';
+  quizIndex ===
+  quizData.length - 1
+    ?
+    'See my result →'
+    :
+    'Next question →';
 
 
   question.options
-    .forEach(
-      (text,i) => {
+  .forEach(
+    (text,i) => {
 
 
-        const btn =
-          document.createElement(
-            'button'
+      const btn =
+      document.createElement(
+        'button'
+      );
+
+
+      btn.type =
+      'button';
+
+
+      btn.className =
+      'option';
+
+
+      btn.textContent =
+      text;
+
+
+      btn.addEventListener(
+        'click',
+        () => {
+
+          answerQuestion(
+            i
           );
 
-
-        btn.type =
-          'button';
-
-
-        btn.className =
-          'option';
+        }
+      );
 
 
-        btn.textContent =
-          text;
-
-
-        btn.addEventListener(
-          'click',
-          () => {
-
-            answerQuestion(
-              i
-            );
-
-          }
+      options
+        .appendChild(
+          btn
         );
 
-
-        options
-          .appendChild(
-            btn
-          );
-
-
-      }
-    );
+    }
+  );
 
 }
 
@@ -3703,30 +3174,30 @@ function answerQuestion(
 
 
   const question =
-    quizData[
-      quizIndex
-    ];
+  quizData[
+    quizIndex
+  ];
 
 
   quizAnswers[
     quizIndex
   ] =
-    choice;
+  choice;
 
 
   const buttons =
-    [
-      ...document
-        .querySelectorAll(
-          '#options .option'
-        )
-    ];
+  [
+    ...document
+      .querySelectorAll(
+        '#options .option'
+      )
+  ];
 
 
   const feedback =
-    document.getElementById(
-      'feedback'
-    );
+  document.getElementById(
+    'feedback'
+  );
 
 
   buttons.forEach(
@@ -3734,7 +3205,7 @@ function answerQuestion(
 
 
       button.disabled =
-        true;
+      true;
 
 
       if(
@@ -3750,7 +3221,6 @@ function answerQuestion(
 
       }
 
-
     }
   );
 
@@ -3764,14 +3234,13 @@ function answerQuestion(
 
 
     feedback.className =
-      'feedback show ok';
+    'feedback show ok';
 
 
     feedback.innerHTML =
-      `<b>Correct.</b> ${question.explanation}`;
+    `<b>Correct.</b> ${question.explanation}`;
 
   }
-
 
   else{
 
@@ -3786,11 +3255,11 @@ function answerQuestion(
 
 
     feedback.className =
-      'feedback show bad';
+    'feedback show bad';
 
 
     feedback.innerHTML =
-      `<b>Not quite.</b> ${question.explanation}`;
+    `<b>Not quite.</b> ${question.explanation}`;
 
   }
 
@@ -3800,7 +3269,7 @@ function answerQuestion(
       'quizScore'
     )
     .textContent =
-      `Score: ${correctCount} / ${quizIndex + 1}`;
+    `Score: ${correctCount} / ${quizIndex + 1}`;
 
 
   document
@@ -3808,7 +3277,7 @@ function answerQuestion(
       'quizNextBtn'
     )
     .disabled =
-      false;
+    false;
 
 }
 
@@ -3818,60 +3287,56 @@ function answerQuestion(
    ========================================================= */
 
 document
-  .getElementById(
-    'quizNextBtn'
-  )
-  .addEventListener(
-    'click',
-    () => {
+.getElementById(
+  'quizNextBtn'
+)
+.addEventListener(
+  'click',
+  () => {
 
 
-      if(
-        quizAnswers[
-          quizIndex
-        ] === null
-      ){
+    if(
+      quizAnswers[
+        quizIndex
+      ] === null
+    ){
 
-        return;
-
-      }
-
-
-      quizIndex++;
-
-
-      if(
-        quizIndex >=
-        quizData.length
-      ){
-
-        showScreen(4);
-
-      }
-
-
-      else{
-
-
-        headerCount
-          .textContent =
-            `Question ${quizIndex + 1} / ${quizData.length}`;
-
-
-        renderQuestion();
-
-
-        window.scrollTo({
-          top:0,
-          behavior:'smooth'
-        });
-
-
-      }
-
+      return;
 
     }
-  );
+
+
+    quizIndex++;
+
+
+    if(
+      quizIndex >=
+      quizData.length
+    ){
+
+      showScreen(4);
+
+    }
+
+    else{
+
+
+      headerCount.textContent =
+      `Question ${quizIndex + 1} / ${quizData.length}`;
+
+
+      renderQuestion();
+
+
+      window.scrollTo({
+        top:0,
+        behavior:'smooth'
+      });
+
+    }
+
+  }
+);
 
 
 /* =========================================================
@@ -3891,17 +3356,143 @@ function calculatePercent(){
 
 
 /* =========================================================
+   SUBMIT COMPLETION TO APPS SCRIPT
+   ========================================================= */
+
+function sendCompletionRecord(
+  percent
+){
+
+  /*
+  Do not send the same completion repeatedly
+  if renderResult() runs more than once.
+  */
+
+  if(
+    completionSubmitted
+  ){
+
+    return;
+
+  }
+
+
+  const statusBox =
+  document.getElementById(
+    'recordStatus'
+  );
+
+
+  const form =
+  document.getElementById(
+    'trackingForm'
+  );
+
+
+  document
+    .getElementById(
+      'trackName'
+    )
+    .value =
+    learnerName
+      .value
+      .trim();
+
+
+  document
+    .getElementById(
+      'trackModule'
+    )
+    .value =
+    MODULE;
+
+
+  document
+    .getElementById(
+      'trackScore'
+    )
+    .value =
+    `${percent}%`;
+
+
+  document
+    .getElementById(
+      'trackStatus'
+    )
+    .value =
+    'Completed';
+
+
+  form.action =
+  TRACKING_URL;
+
+
+  statusBox.innerHTML =
+  `
+    <b>Submitting completion record...</b><br>
+    Your signed-in Numerator account will be used for verification.
+  `;
+
+
+  try{
+
+
+    form.submit();
+
+
+    completionSubmitted =
+    true;
+
+
+    setTimeout(
+      () => {
+
+        statusBox.innerHTML =
+        `
+          <b>Completion submitted.</b><br>
+          Your result has been sent to the microlearning tracking system.
+        `;
+
+      },
+      1200
+    );
+
+
+  }
+
+  catch(error){
+
+
+    console.error(
+      'Tracking submission failed:',
+      error
+    );
+
+
+    statusBox.innerHTML =
+    `
+      <b>Completion achieved.</b><br>
+      The tracking request could not be sent from this browser.
+    `;
+
+  }
+
+}
+
+
+/* =========================================================
    RESULT
    ========================================================= */
 
 function renderResult(){
 
   const percent =
-    calculatePercent();
+  calculatePercent();
 
 
   const passed =
-    percent >= 85;
+  percent >=
+  PASS_PERCENT;
 
 
   document
@@ -3909,7 +3500,7 @@ function renderResult(){
       'resultNumber'
     )
     .textContent =
-      percent + '%';
+    percent + '%';
 
 
   document
@@ -3930,25 +3521,31 @@ function renderResult(){
       'correctChip'
     )
     .textContent =
-      `${correctCount} / ${quizData.length} correct`;
+    `${correctCount} / ${quizData.length} correct`;
 
 
   const title =
-    document.getElementById(
-      'resultTitle'
-    );
+  document.getElementById(
+    'resultTitle'
+  );
 
 
   const message =
-    document.getElementById(
-      'resultMessage'
-    );
+  document.getElementById(
+    'resultMessage'
+  );
 
 
   const certificate =
-    document.getElementById(
-      'certificate'
-    );
+  document.getElementById(
+    'certificate'
+  );
+
+
+  const statusBox =
+  document.getElementById(
+    'recordStatus'
+  );
 
 
   if(
@@ -3957,11 +3554,11 @@ function renderResult(){
 
 
     title.textContent =
-      'Completed';
+    'Completed';
 
 
     message.textContent =
-      'You demonstrated a strong understanding of how to identify ADKAR barriers and choose the appropriate response.';
+    'You demonstrated a strong understanding of how to identify ADKAR barriers and choose the appropriate response.';
 
 
     document
@@ -3969,12 +3566,9 @@ function renderResult(){
         'certName'
       )
       .textContent =
-        document
-          .getElementById(
-            'learnerName'
-          )
-          .value
-          .trim();
+      learnerName
+        .value
+        .trim();
 
 
     document
@@ -3982,7 +3576,7 @@ function renderResult(){
         'certScore'
       )
       .textContent =
-        `Score: ${percent}%`;
+      `Score: ${percent}%`;
 
 
     document
@@ -3990,17 +3584,17 @@ function renderResult(){
         'certDate'
       )
       .textContent =
-        `Completed on ${
-          new Date()
-            .toLocaleDateString(
-              'en-GB',
-              {
-                day:'2-digit',
-                month:'long',
-                year:'numeric'
-              }
-            )
-        }`;
+      `Completed on ${
+        new Date()
+          .toLocaleDateString(
+            'en-GB',
+            {
+              day:'2-digit',
+              month:'long',
+              year:'numeric'
+            }
+          )
+      }`;
 
 
     certificate
@@ -4009,18 +3603,27 @@ function renderResult(){
         'show'
       );
 
-  }
 
+    /*
+    Only passing attempts are sent
+    to the Google Sheet.
+    */
+
+    sendCompletionRecord(
+      percent
+    );
+
+  }
 
   else{
 
 
     title.textContent =
-      'Not completed yet';
+    'Not completed yet';
 
 
     message.textContent =
-      `You scored ${percent}%. You need at least 85% to complete this microlearning. Review the ADKAR stages and retry the knowledge check.`;
+    `You scored ${percent}%. You need at least 85% to complete this microlearning. Review the ADKAR stages and retry the knowledge check.`;
 
 
     certificate
@@ -4029,54 +3632,67 @@ function renderResult(){
         'show'
       );
 
+
+    statusBox.innerHTML =
+    `
+      <b>No completion record submitted.</b><br>
+      You need at least 85% to be recorded as completed.
+    `;
+
   }
 
 }
 
 
 /* =========================================================
-   RETRY
+   RETRY QUIZ
    ========================================================= */
 
 document
-  .getElementById(
-    'retryBtn'
-  )
-  .addEventListener(
-    'click',
-    () => {
+.getElementById(
+  'retryBtn'
+)
+.addEventListener(
+  'click',
+  () => {
 
 
-      quizIndex =
-        0;
+    quizIndex =
+    0;
 
 
-      correctCount =
-        0;
+    correctCount =
+    0;
 
 
-      quizAnswers =
-        Array(
-          quizData.length
-        )
-        .fill(null);
+    quizAnswers =
+    Array(
+      quizData.length
+    ).fill(null);
 
 
-      document
-        .getElementById(
-          'certificate'
-        )
-        .classList
-        .remove(
-          'show'
-        );
+    document
+      .getElementById(
+        'certificate'
+      )
+      .classList
+      .remove(
+        'show'
+      );
 
 
-      showScreen(3);
+    document
+      .getElementById(
+        'recordStatus'
+      )
+      .innerHTML =
+      'Complete the knowledge check to submit a completion record.';
 
 
-    }
-  );
+    showScreen(3);
+
+  }
+);
 
 
 /* =========================================================
@@ -4084,17 +3700,17 @@ document
    ========================================================= */
 
 document
-  .getElementById(
-    'certPrintBtn'
-  )
-  .addEventListener(
-    'click',
-    () => {
+.getElementById(
+  'certPrintBtn'
+)
+.addEventListener(
+  'click',
+  () => {
 
-      window.print();
+    window.print();
 
-    }
-  );
+  }
+);
 
 
 /* =========================================================
