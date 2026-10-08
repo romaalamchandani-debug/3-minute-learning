@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Numerator's Microlearning Hub</title>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Numerator's Microlearning Hub
+  </title>
+
 
   <style>
+
     * {
       box-sizing: border-box;
     }
+
 
     body {
       margin: 0;
@@ -18,174 +29,396 @@
       color: #182536;
     }
 
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
     .header {
-      background: linear-gradient(135deg, #2f1835, #146b8c);
+      background:
+        linear-gradient(
+          135deg,
+          #2f1835,
+          #146b8c
+        );
+
       color: white;
-      padding: 65px 25px;
+
+      padding:
+        65px 25px;
+
       text-align: center;
     }
 
+
     .header h1 {
-      margin: 0 0 12px;
-      font-size: 44px;
+      margin:
+        0 0 12px;
+
+      font-size:
+        clamp(
+          34px,
+          5vw,
+          48px
+        );
+
+      line-height: 1.08;
     }
+
 
     .header p {
       margin: 0;
+
       font-size: 18px;
+
       opacity: 0.9;
     }
 
+
+
+    /* =====================================================
+       MAIN CONTAINER
+       ===================================================== */
+
     .container {
       max-width: 1150px;
-      margin: 50px auto;
-      padding: 0 25px;
+
+      margin:
+        50px auto;
+
+      padding:
+        0 25px;
     }
+
 
     .intro {
       text-align: center;
+
       margin-bottom: 40px;
     }
 
+
     .intro h2 {
       font-size: 30px;
+
       margin-bottom: 10px;
+
       color: #182536;
     }
 
+
     .intro p {
       color: #667487;
+
       font-size: 17px;
+
       line-height: 1.6;
+
+      max-width: 720px;
+
+      margin:
+        0 auto;
     }
+
+
+
+    /* =====================================================
+       CARD GRID
+       ===================================================== */
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(
+            250px,
+            1fr
+          )
+        );
+
       gap: 24px;
+
+      align-items: stretch;
     }
+
+
+
+    /* =====================================================
+       CARD
+       ===================================================== */
 
     .card {
       background: white;
-      border: 1px solid #dfe4e8;
+
+      border:
+        1px solid #dfe4e8;
+
       border-radius: 18px;
+
       padding: 28px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+
+      box-shadow:
+        0 8px 25px
+        rgba(
+          0,
+          0,
+          0,
+          0.06
+        );
+
       display: flex;
+
       flex-direction: column;
-      min-height: 315px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      min-height: 330px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
+
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.09);
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 12px 30px
+        rgba(
+          0,
+          0,
+          0,
+          0.09
+        );
     }
+
+
+
+    /* =====================================================
+       TAG
+       ===================================================== */
 
     .tag {
       display: inline-block;
+
       width: fit-content;
-      padding: 7px 11px;
+
+      padding:
+        7px 11px;
+
       border-radius: 20px;
+
       background: #f1eaf4;
+
       color: #2f1835;
+
       font-size: 12px;
+
       font-weight: bold;
+
       margin-bottom: 18px;
     }
 
+
+
+    /* =====================================================
+       CARD TITLES
+       ===================================================== */
+
     .card h2 {
       color: #2f1835;
-      margin: 0 0 12px;
+
+      margin:
+        0 0 12px;
+
       font-size: 25px;
+
+      line-height: 1.2;
     }
+
+
+
+    /* =====================================================
+       CARD TEXT
+       ===================================================== */
 
     .card p {
       color: #667487;
+
       line-height: 1.6;
+
       flex-grow: 1;
-      margin-bottom: 0;
+
+      margin:
+        0;
+
+      font-size: 16px;
     }
+
+
+
+    /* =====================================================
+       BUTTON
+       ===================================================== */
 
     .btn {
       display: inline-block;
+
       text-decoration: none;
+
       text-align: center;
-      padding: 13px 18px;
+
+      padding:
+        13px 18px;
+
       border-radius: 10px;
+
       background: #2f1835;
+
       color: white;
+
       font-weight: bold;
+
       margin-top: 22px;
-      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
     }
+
 
     .btn:hover {
       opacity: 0.92;
-      transform: translateY(-1px);
+
+      transform:
+        translateY(-1px);
     }
+
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .footer {
       text-align: center;
+
       color: #82909d;
+
       font-size: 13px;
-      padding: 35px;
+
+      padding:
+        35px 20px;
     }
 
-    @media(max-width: 600px) {
-      .header h1 {
-        font-size: 34px;
-      }
+
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+
+    @media(
+      max-width: 600px
+    ) {
 
       .header {
-        padding: 45px 20px;
+        padding:
+          45px 20px;
       }
 
+
       .container {
-        margin: 35px auto;
-        padding: 0 18px;
+        margin:
+          35px auto;
+
+        padding:
+          0 18px;
       }
+
+
+      .card {
+        min-height: 300px;
+      }
+
     }
+
   </style>
+
 </head>
+
+
 
 <body>
 
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
   <header class="header">
-    <h1>Numerator's Microlearning Hub</h1>
-    <p>Short lessons. Practical workplace learning.</p>
+
+    <h1>
+      Numerator's Microlearning Hub
+    </h1>
+
+    <p>
+      Short lessons. Practical workplace learning.
+    </p>
+
   </header>
+
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
 
   <main class="container">
 
+
     <div class="intro">
-      <h2>Choose a learning module</h2>
+
+      <h2>
+        Choose a learning module
+      </h2>
 
       <p>
-        Explore short, focused learning experiences designed for
-        quick understanding and practical application.
+        Explore short, focused learning experiences designed
+        for quick understanding, practical application and
+        reinforcement of workplace skills.
       </p>
+
     </div>
+
 
 
     <div class="cards">
 
 
-      <!-- ADDIE -->
+      <!-- =================================================
+           ADDIE
+           ================================================= -->
+
       <div class="card">
 
         <span class="tag">
           Learning & Development
         </span>
 
+
         <h2>
           ADDIE
         </h2>
 
+
         <p>
-          Explore the five stages of the ADDIE framework through an
-          interactive learning cycle and workplace-based scenarios.
+          Explore the five stages of the ADDIE framework
+          through an interactive learning cycle and
+          workplace-based scenarios.
         </p>
+
 
         <a
           class="btn"
@@ -197,21 +430,28 @@
       </div>
 
 
-      <!-- THINK BEFORE YOU SEND -->
+
+      <!-- =================================================
+           THINK BEFORE YOU SEND
+           ================================================= -->
+
       <div class="card">
 
         <span class="tag">
           Communication
         </span>
 
+
         <h2>
           Think Before You Send
         </h2>
 
+
         <p>
-          Learn a simple workplace email check to make communication
-          clearer, actionable and professional.
+          Learn a simple workplace email check to make
+          communication clearer, actionable and professional.
         </p>
+
 
         <a
           class="btn"
@@ -223,21 +463,29 @@
       </div>
 
 
-      <!-- ADKAR -->
+
+      <!-- =================================================
+           ADKAR
+           ================================================= -->
+
       <div class="card">
 
         <span class="tag">
           Change Management
         </span>
 
+
         <h2>
           ADKAR
         </h2>
 
+
         <p>
-          Explore the stages of the ADKAR model and understand how
-          each stage supports people through successful change adoption.
+          Explore the five stages of the ADKAR model and
+          understand how Awareness, Desire, Knowledge,
+          Ability and Reinforcement support successful change.
         </p>
+
 
         <a
           class="btn"
@@ -247,37 +495,41 @@
         </a>
 
       </div>
-      <!-- RACI CARD -->
-  <a class="card" href="./RACI/">
 
-    <div class="card-top">
-      <div class="icon">
-        R
+
+
+      <!-- =================================================
+           RACI
+           ================================================= -->
+
+      <div class="card">
+
+        <span class="tag">
+          Role Clarity & Collaboration
+        </span>
+
+
+        <h2>
+          RACI — Who Does What?
+        </h2>
+
+
+        <p>
+          Build the RACI model step by step and understand
+          how Responsible, Accountable, Consulted and
+          Informed roles create clearer ownership across
+          projects and teams.
+        </p>
+
+
+        <a
+          class="btn"
+          href="./RACI/"
+        >
+          Start Learning →
+        </a>
+
       </div>
-
-      <span class="tag">
-        Role Clarity
-      </span>
-    </div>
-
-    <h3>
-      RACI — Who Does What?
-    </h3>
-
-    <p>
-      Build the RACI model step by step and learn how
-      Responsible, Accountable, Consulted and Informed
-      roles create clarity in projects and team work.
-    </p>
-
-    <div class="card-footer">
-      <span>
-        ~5 min
-      </span>
-
-      <span>
-        Start Learning →
-      </span>
 
 
     </div>
@@ -285,9 +537,20 @@
   </main>
 
 
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
   <footer class="footer">
-    Microlearning Initiative • Learn. Apply. Grow.
+
+    Microlearning Initiative
+    •
+    Learn. Apply. Grow.
+
   </footer>
 
+
 </body>
+
 </html>
